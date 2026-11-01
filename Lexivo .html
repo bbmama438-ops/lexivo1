@@ -1,0 +1,621 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Lexivo A1 → B1 (Copy)</title>
+<style>
+:root{--bg:#0c0c0d;--card:rgba(23,24,26,.5);--card2:rgba(255,255,255,.09);--tx:#fff;--mut:#8a8f98;--ac:#b8f43c;--ink:#0c0c0d;--bad:#ff6b6b;--bd:#2a2c30;--b1:#6aa51b;--b2:#1d6b4f;--b3:#b8f43c;--i1:#b8f43c;--i2:#5ee08a;--i3:#e6ff7a;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.5 "Poppins","Cairo",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:520px;margin:0 auto;padding:14px 16px calc(100px + env(safe-area-inset-bottom,0px))}
+button{font:inherit;cursor:pointer;color:var(--tx)}
+h1{font-size:1.6rem;margin:8px 0 0;font-weight:700;letter-spacing:-.01em}h2{font-size:1.1rem;margin:20px 0 8px}
+.mut,.badge{color:var(--mut);font-size:.85rem}
+.top{display:flex;justify-content:space-between;align-items:center}
+.ic button,.ic span{background:none;border:0;font-size:1.3rem;margin-right:12px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--card);border-radius:24px;padding:4px 4px 4px 14px;font-weight:700}
+.plus{width:34px;height:34px;border-radius:50%;border:0;background:var(--ac);color:var(--ink);font-size:1.3rem;font-weight:700}
+.hero{text-align:center;margin:14px 0 18px}
+@property --ang{syntax:"<angle>";inherits:false;initial-value:0deg}@keyframes rot{to{--ang:360deg}}
+.ring{width:104px;height:104px;border-radius:50%;padding:4px;margin:0 auto;background:conic-gradient(from var(--ang),var(--i1),var(--i2),var(--i3),var(--i2),var(--i1));animation:rot 6s linear infinite}
+.ring span{display:flex;width:100%;height:100%;border-radius:50%;background:#111418;align-items:center;justify-content:center;font-size:3.2rem}
+.stats{display:flex;justify-content:space-around;margin-bottom:16px;text-align:center}
+.stats>div{flex:1;border-right:1px solid var(--bd)}.stats>div:last-child{border:0}
+.stats b{font-size:1.25rem;color:var(--tx)}.stats b i{color:var(--ac);font-style:normal}
+.week{display:flex;gap:6px;margin-bottom:14px}
+.day{flex:1;background:var(--card);border:1px solid transparent;border-radius:12px;text-align:center;padding:10px 0;color:var(--mut);font-size:.85rem}
+.day u{display:block;width:6px;height:6px;border-radius:50%;background:#444;margin:0 auto 8px}
+.day.on u{background:var(--ac)}.day.today{border-color:var(--ac);color:var(--tx)}
+.g2{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;margin-bottom:10px}
+.card{background:var(--card);border-radius:18px;padding:14px;margin-bottom:10px}
+.g2 .card{margin:0}
+.streak{background:linear-gradient(120deg,var(--card),#26380f);position:relative;overflow:hidden}
+.streak .tr{position:absolute;right:6px;top:4px;font-size:3.6rem}
+.dots{display:flex;gap:5px;margin-top:10px}.dots i{width:7px;height:7px;border-radius:50%;background:#444}.dots i.on{background:var(--ac)}
+.task{display:flex;gap:14px;align-items:center;background:linear-gradient(110deg,#6aa51b,var(--card) 45%);width:100%;text-align:left;border:0}
+.task .coin{font-size:3rem}
+.lesson{display:flex;justify-content:space-between;align-items:center;width:100%;text-align:left;border:0}
+.done{color:var(--ac);font-weight:700}
+.btn{background:var(--ac);color:var(--ink);border:0;border-radius:12px;padding:12px 18px;font-weight:700}
+.ghost{background:none;border:0;color:var(--ac);padding:6px 0}
+.ar{direction:rtl;text-align:right;color:var(--mut);font-size:.95rem;margin-top:6px}
+.word{display:flex;justify-content:space-between;gap:8px;align-items:center;border:0;border-bottom:1px solid var(--bd);padding:10px 0;background:none;width:100%;text-align:left}
+.word:last-child{border-bottom:0}
+.opt{display:block;width:100%;text-align:left;background:var(--card2);border:1px solid transparent;border-radius:12px;padding:12px;margin:8px 0}
+.opt.ok{border-color:var(--ac);background:#26380f}.opt.bad{border-color:var(--bad);background:#3a1b1b}
+.bar{height:8px;background:var(--card2);border-radius:6px;overflow:hidden;margin:6px 0 14px}
+.bar i{display:block;height:100%;background:var(--ac);transition:width .3s}
+input,select,textarea{resize:vertical;width:100%;font:inherit;padding:12px;border-radius:12px;border:1px solid var(--bd);background:var(--card2);color:var(--tx);margin:6px 0 12px}
+.avs{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 16px}
+.av{font-size:2rem;width:60px;height:60px;border-radius:50%;border:2px solid var(--bd);background:var(--card2)}.av.on{border-color:var(--ac)}
+#bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+#bg i{position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(70px);opacity:.38;animation:fl 18s ease-in-out infinite alternate}
+#bg i:nth-child(1){background:var(--b1);top:-20%;left:-20%}
+#bg i:nth-child(2){background:var(--b2);bottom:-25%;right:-20%;animation-duration:24s;animation-delay:-6s}
+#bg i:nth-child(3){background:var(--b3);top:35%;left:35%;width:35vmax;height:35vmax;opacity:.22;animation-duration:30s;animation-delay:-12s}
+@keyframes fl{0%{transform:translate(0,0) scale(1)}50%{transform:translate(14vw,8vh) scale(1.25)}100%{transform:translate(-10vw,16vh) scale(.9)}}
+body.still #bg i{animation:none}
+@media (prefers-reduced-motion:reduce){#bg i{animation:none}}
+body[data-bg=blue]{--ac:#5eb0ff;--b1:#2563eb;--b2:#0ea5e9;--b3:#6366f1;--i1:#5eb0ff;--i2:#38e0ff;--i3:#9aa8ff}
+body[data-bg=purple]{--ac:#c4a1ff;--b1:#7c3aed;--b2:#db2777;--b3:#a78bfa;--i1:#c4a1ff;--i2:#ff7ac8;--i3:#e6d4ff}
+body[data-bg=sunset]{--ac:#ffb347;--b1:#f97316;--b2:#e11d48;--b3:#fbbf24;--i1:#ffb347;--i2:#ff6b6b;--i3:#ffe08a}
+.sw{width:44px;height:44px;border-radius:50%;border:3px solid var(--bd)}.sw.on{border-color:#fff}
+svg.i{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:-5px}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{text-align:left;border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:14px;color:var(--tx);background:linear-gradient(160deg,color-mix(in srgb,var(--c) 24%,transparent),rgba(23,24,26,.5));backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.tile .no{width:32px;height:32px;border-radius:50%;background:var(--c);color:#0c0c0d;font-weight:800;display:flex;align-items:center;justify-content:center}
+.tile b{display:block;margin:10px 0 4px;line-height:1.2}.tile .ft{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.lvh{display:flex;justify-content:space-between;align-items:center;margin:22px 0 10px}
+.pill{background:var(--c);color:#0c0c0d;font-weight:800;border-radius:20px;padding:4px 14px}
+.chips{display:flex;gap:8px;margin:0 0 12px}.chip2{border:1px solid var(--bd);background:var(--card);border-radius:20px;padding:6px 16px}.chip2.on{background:var(--ac);color:var(--ink);border-color:var(--ac);font-weight:700}
+details.dl summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center;list-style:none}details.dl summary::-webkit-details-marker{display:none}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.wt{background:var(--card2);border:0;border-radius:14px;padding:10px 12px;text-align:left;display:flex;flex-direction:column;gap:2px}
+.wt b{font-size:.95rem}.wt span{color:var(--mut);direction:rtl;text-align:right;font-size:.9rem}
+svg.i.lg{width:44px;height:44px}
+svg.i.gold{stroke:#ffc400;stroke:url(#gold);stroke-width:2;width:36px;height:36px;vertical-align:middle;animation:glow 4s linear infinite}
+@keyframes glow{0%,100%{filter:drop-shadow(0 0 5px var(--i1))}33%{filter:drop-shadow(0 0 7px var(--i2))}66%{filter:drop-shadow(0 0 7px var(--i3))}}
+@media (prefers-reduced-motion:reduce){svg.i.gold{animation:none;filter:drop-shadow(0 0 5px #ffc400)}}.streak .tr svg.i{width:60px;height:60px}.top svg.i{width:40px;height:40px;padding:8px;border-radius:50%;background:color-mix(in srgb,var(--ac) 24%,transparent);vertical-align:middle}
+.card,.chip,.day{backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+nav button svg.i{width:56px;height:32px;padding:4px 15px;border-radius:16px;opacity:.6;vertical-align:0;transition:background .2s}nav button.on svg.i{opacity:1;background:color-mix(in srgb,var(--ac) 38%,transparent);box-shadow:0 0 14px color-mix(in srgb,var(--ac) 35%,transparent)}
+nav{backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid rgba(255,255,255,.1)!important;background:rgba(20,21,24,.4)!important}
+.word.ex{flex-direction:column;align-items:stretch;gap:4px}.word.ex .ar{text-align:right;width:100%}
+#splash{position:fixed;inset:0;z-index:100;background:#0c0c0d;display:flex;align-items:center;justify-content:center;transition:opacity .7s ease,visibility .7s;overflow:hidden;cursor:pointer}
+#splash.out{opacity:0;visibility:hidden}
+#splash .sb{position:absolute;inset:0}
+#splash .sb i{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;animation:fl2 7s ease-in-out infinite alternate}
+#splash .sb i:nth-child(1){width:70vmax;height:70vmax;background:var(--b1);top:-25%;left:-25%}
+#splash .sb i:nth-child(2){width:60vmax;height:60vmax;background:var(--b2);bottom:-25%;right:-20%;animation-duration:9s;animation-delay:-3s}
+#splash .sb i:nth-child(3){width:40vmax;height:40vmax;background:var(--b3);top:30%;left:30%;opacity:.3;animation-duration:11s;animation-delay:-5s}
+@keyframes fl2{0%{transform:translate(0,0) scale(1)}50%{transform:translate(22vw,12vh) scale(1.3)}100%{transform:translate(-14vw,22vh) scale(.9)}}
+.lgw{position:relative;width:min(78vw,440px);text-align:center}
+.lgo{display:flex;width:100%;animation:glow2 2.4s ease-in-out 1.1s infinite alternate}
+.lgo img{display:block;height:100%;opacity:0;animation:up .8s cubic-bezier(.2,.9,.3,1.15) both}
+@keyframes up{from{opacity:0;transform:translateY(46px) scale(.7) rotate(-6deg);filter:blur(12px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes glow2{from{filter:drop-shadow(0 0 4px rgba(255,255,255,.25))}to{filter:drop-shadow(0 0 22px rgba(255,255,255,.5))}}
+.ln{height:3px;width:0;margin:22px auto 0;border-radius:2px;background:var(--ac);animation:ln 1s ease 1s forwards}
+@keyframes ln{to{width:60%}}
+.tg2{margin-top:14px;color:#fff;opacity:0;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;animation:fi .8s ease 1.5s forwards}
+@keyframes fi{to{opacity:.8}}
+@media (prefers-reduced-motion:reduce){#splash .sb i,.lgo{animation:none}.lgo img{animation-duration:.01s}}
+.al{display:block;margin:12px 0 4px;color:var(--mut);font-size:.8rem}textarea.mono{font:13px/1.5 ui-monospace,Menlo,monospace}.ok2{color:var(--ac);margin-top:8px}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);display:flex;justify-content:space-around;padding:8px 0 calc(8px + env(safe-area-inset-bottom,0px))}
+nav button{background:none;border:0;color:var(--mut);font-size:.8rem;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;flex:1;font-size:.7rem}
+nav button span{font-size:1.4rem}nav button.on{color:var(--ac)}
+
+.auth{min-height:calc(100vh - 40px);display:flex;align-items:center;justify-content:center;padding:6px 0}
+.glass{width:100%;background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.22);border-radius:38px;padding:30px 22px 24px;backdrop-filter:blur(22px) saturate(1.3);-webkit-backdrop-filter:blur(22px) saturate(1.3);box-shadow:0 20px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.18)}
+.alogo{width:60%;margin:0 auto 18px}
+.ah{text-align:center;font-size:1.55rem;margin:0 0 24px;letter-spacing:.01em}
+.glass label{display:block;margin:0 0 6px 10px;font-size:.95rem;color:#fff}
+.ain{width:100%;margin:0 0 18px;padding:14px 18px;border-radius:22px;border:2px solid rgba(255,255,255,.9);background:rgba(8,6,16,.55);color:#fff;font:inherit}
+.ain::placeholder{color:rgba(255,255,255,.42)}
+.ain:focus{outline:none;box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 45%,transparent)}
+.pw{position:relative}.pw .ain{padding-right:76px}
+.eye{position:absolute;right:12px;top:9px;background:none;border:0;color:var(--ac);font-weight:600;padding:6px 8px}
+.abtn{width:100%;padding:14px;border-radius:22px;border:2px solid rgba(255,255,255,.9);color:var(--ink);font-weight:800;font-size:1.15rem;letter-spacing:.02em;background:linear-gradient(180deg,var(--ac),color-mix(in srgb,var(--ac) 78%,#000));box-shadow:0 8px 24px color-mix(in srgb,var(--ac) 30%,transparent)}
+.alink{background:none;border:0;color:var(--ac);padding:4px 0;font:inherit}
+.amsg{min-height:1.4em;margin:-6px 0 10px 10px;font-size:.85rem;color:var(--bad)}
+.aft{text-align:center;margin:20px 0 0;color:var(--mut);font-size:.9rem}
+.wel{text-align:center;animation:wi .6s ease both}@keyframes wi{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.wbar{height:6px;border-radius:6px;background:rgba(255,255,255,.15);overflow:hidden}.wbar i{display:block;height:100%;background:var(--ac);animation:wb 4s linear forwards}@keyframes wb{from{width:0}to{width:100%}}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="rgb" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0" style="stop-color:var(--i1)"/><stop offset=".5" style="stop-color:var(--i2)"/><stop offset="1" style="stop-color:var(--i3)"/><animateTransform attributeName="gradientTransform" type="rotate" from="0 12 12" to="360 12 12" dur="5s" repeatCount="indefinite"/></linearGradient>
+<symbol id="ic-learn" viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v15H5.5A1.5 1.5 0 0 0 4 20.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v15h5.5a1.5 1.5 0 0 1 1.5 1.5z"/></symbol>
+<symbol id="ic-text" viewBox="0 0 24 24"><path d="M4 7V5h16v2M12 5v14M9 19h6"/></symbol>
+<symbol id="ic-exam" viewBox="0 0 24 24"><path d="M7 4h10a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM9 3h6v3H9zM9 13l2 2 4-4"/></symbol>
+<symbol id="ic-bars" viewBox="0 0 24 24"><path d="M5 20V11M12 20V4M19 20v-6"/></symbol>
+<symbol id="ic-user" viewBox="0 0 24 24"><path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 21c0-4 4-6 8-6s8 2 8 6"/></symbol>
+<symbol id="ic-gear" viewBox="0 0 24 24"><path d="M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></symbol>
+<symbol id="ic-bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+<symbol id="ic-vol" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9zM16 9a4 4 0 0 1 0 6"/></symbol>
+<symbol id="ic-spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></symbol>
+<symbol id="ic-pal" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1.5 0 2-1 1.5-2s0-2 1.5-2h2a4 4 0 0 0 4-4c0-5-4-10-9-10zM8 11h.1M12 7.5h.1M16 11h.1"/></symbol>
+<symbol id="ic-trophy" viewBox="0 0 24 24"><path d="M8 4h8v6a4 4 0 0 1-8 0zM8 6H4v1a4 4 0 0 0 4 4M16 6h4v1a4 4 0 0 1-4 4M12 14v4M8 20h8"/></symbol>
+<symbol id="ic-target" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zM12 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></symbol>
+<symbol id="ic-cal" viewBox="0 0 24 24"><path d="M6 5h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM4 10h16M8 3v4M16 3v4"/></symbol>
+<symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></symbol>
+<linearGradient id="gold" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="24" y2="24"><stop offset="0" stop-color="#fff1a8"/><stop offset=".5" stop-color="#ffc400"/><stop offset="1" stop-color="#b8860b"/></linearGradient>
+<symbol id="ic-mic" viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3M9 21h6"/></symbol>
+<symbol id="ic-img" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM3 16l5-5 4 4 3-3 6 6M9 9h.1"/></symbol>
+<symbol id="ic-play" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM10 8.5l6 3.5-6 3.5z"/></symbol>
+<symbol id="ic-lock" viewBox="0 0 24 24"><path d="M7 11h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-6a2 2 0 0 1 2-2zM8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+</defs></svg>
+<div id="bg"><i></i><i></i><i></i></div>
+<main id="app"></main>
+<div id="splash"><div class="sb"><i></i><i></i><i></i></div><div class="lgw"><div class="lgo" role="img" aria-label="Lexivo" style="aspect-ratio:1650/253"><img alt="" style="width:16.303%;animation-delay:0.25s" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACKCAYAAACuPHhGAAAEyklEQVR42u2dPYhcVRSAvzMzcY1igmkUG6NiI5ZiIYqKNlpYWVmbzsJCBAnYCLEQURFbUylYaGEpCimMAUFEUFRIXA0W/mGImmCcmXcs5j7zGHZx52fd+/D74LHL/s3bOd+cc+59990hM0/mjGnuLZPy8ShAZg6RXjEAorJzaiUKw9M/mWpjYlj6K1NWdk77DEt/ZaotOzWGxTInyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokwiyiTKJMokyiSiTKJMokyiTCLKJMokyiSiTKJMokyiTCLKJMokyiSiTKJMokyiTCLKJMokyiSiTKJMokyiTCLKJMokyiSiTKJMokxLkIZFmdZFGBZlWhf7DIsyrau8XWVYlGldXGO5U6Z1cbWNeH9laiprvK/LzACm5aP0SKZJZTLdCByICDNTD2UaV3QuCRwGbilZyczUM5kuVXQ+TZkauLdkJmfoeybThYrOp81ET2TmIaDJzKFh6o9Mf1Q0emoHBDcDr0ZEExHTzBxl5sCGvG5GwLkKBZ8Cj2XmReCZiPil/WYnUynWHrYjEdFsJdPvFZ7ssGTKx4EHMvM48BbwXURcMpZ1Epn5JPBSyQa19SfdcxoDnwGbwM/lGM9NbaQZa9fjsQGcjIgTmRndKZwRcLYEYVhhMIalh8oyyrujHLK3vAacKP6MuzJ9DfwGHKx4kNBmncY47imTOYFyvmc6U/qmg5X/I1FhGf6/0VawLeMwiIg/gZ8qmh6QfvRO25aQT5RJ1tWPfK5Msi6ZvuzUQ5GVZDoNnC9NrtlJlpOpXO/6HvjWUierZqZBRIyBj5RJ1lHmAN716ZBVZWpKqfuwNOLtJQyRxWQqF+qGEXEBeM9SJ6uWueyUugaXy8oKMjWZOSil7tPytalPjywsUyl1ERF/Aa8wm29yXZAsPZprG/E3mS1CCxtxWUqm9taiiJgCL+NsuKyQmSh3ggyAN4BTThPI0jJ1pBoDR4CLbQn0qZKFZYqIJjMHEfEFcIy6NreQHmam9k7a54F3mC3vnfh0ycIyFbLcaHekjO5GOPcky8jUKXe/Ao8AX5WGXKFk4cz0T7mLiLPAw8yW9w4tebKwTN3pgojYBB4E3i8lr7Exl4Vkmit5PwIPAS+U3203mXByU3a+OqAj1CQingYe7ZS9KKVPqZRpIaGiSPU2cDfwLLNteUYdqRrFUqadCJWdxvx8RDwH3FlK3w9FqkERa+roT5l2ItW0ZKlhRJwupe824CngYy5vh9Pei9eUrDU1cynTdllqWrYIHEbEuYh4EbgLuAc4CnzA5dWboyJXm7maTvbqHq1sqXT9YbSOP9JuSVfWQw0jYsJs1cEp4Fhm3gTcD9wH3ArcUI6dPr6ZrA7aliV3TaZupgImnT2829HfJrMd314v1/wOAdcz20D+MHB7+Xw/cC2z7X0OMHtTng1ck14LbcuysWX8d/vRO2LFzLeY/MvPX1FkOljk2g9c2ZmCcDnx3tGUBPRNRJyZ34bwPw9MZ/vleTGCbXZxlX5Q3at87m0uzEJ1OrPli/5vwgPnwJkA8vEAAAAASUVORK5CYII="><img alt="" style="width:16.788%;animation-delay:0.39s" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJcAAACKCAYAAACn19g8AAAFGElEQVR42u2dv4tcVRSAv/Nm1lXQ+AMsUkQxqM2ighaCFoKgRSoFIZ1domKnYGXl/+BPYmuTIKJFEFKv4I/KoIIgRJsQSaEQLLLzjsXca56T7LKTfYPvOd8Hy+7OwrLc+8055769955gCTIzgCYiZp3XtoAngceBB4D7gfuAO5B1oAUa4LWI+CAzJ9WP6TJiRUQCs8w8BLwInAS2gDsd47UnF1+Y7lOsJiLazJwWod4Eji784haIzoesF5Ol5eqIdQ/wMfBC+dFOCYdVponju9bMlpKrI9ZR4DPgkY5UU8dTOsS+5SrFO5l5N/BJRyylkn3R7GViRLTA+2U1qFhycLnKcrLNzGPA8ZJPramkl8hVV4bv7JVTRZaSq0StBJ4HniiPGIxa0kvkqg/D6iOH1mGSA8tVnsK3mbkJPF1eNmpJrzXXEeb/JxTpTa76/RZwW0mRFvLSi1xVpMest2RVch1SLulbrrpSnC7IJtKbXG70k5WtFv0foqxMLtOhrEyudGhkVXKJKJcolyiXiHKJcolyiSiXKJeIcolyiXKJdBnb1hp3xg53TnKsctWDIkba4Wa/zbHKVfeX/Qhc4vr9Zka0//6N/8tiBJuO4A8HuAy8DJwDdsp1AzLEKDC/GWkUBf2svCvejYizimVB32fUqlcJbGfmBIjMnDltg4xYoyvoa221ExGzzg08MqJKX0S5RLlElEuUS5RLRLlEuUS5RJRLlEuUS2QvxrJZcCMzN4AmM31DDI+22/d8bHJdjoirzqGRaxWcyMxngA3mGwjd1jwMspRWFyLi9Jjk6u6TP+k8Dppt4DT80z8qxxS5dvCe1iFSm7xeqmKNMS16dflwnzZMdpsfV16yUvNElEuUS0S5RLlEuUSUS5RLlEtEuUS5RLlElEuUS5RLRLlEuUS5RJRLBsRYDj60ePpniMw68zNauYyww6Q2oTgE80YH3eNlY5HrFPAD8xPXyfwcYzi3g8gotwA/w78PxA5drtoNK4GPIuIb53LYLHY3GUPkCuCu0vtn0snzMqBA0O1WNra0OCu9f7jRVT1ioSzKJaJcolyiXCLKJcolyuUQiHKJcokolyiXKNeqmThVyrUqcvECfRk+Q2/PUjs0PBQR5zJzQ8kGy2xsmwXrTtRXM/NMRPzuHBq5+kzbCTwKbGfm55Q+MzKckqVkly8i4vzYGkvV6PUg8IZzOVj+AM6XgDAbi1xVMM8uDpO2k2FGlRbHuLJdN6LMTeOEycpWi8olphpRLhHlEuUS5RJRLlEuUS4R5RLlkrWUy92e0rtcVaq/HBpZlVxXymf3T0nvabF1aKRvuWqk+tWCX1Yl1/fls4dRpTe5ajr8ifmGe+su6b3musj8JIdyST9ylcZATTl39nURS7mk18gFcIZrJztEDi5XRLTl1Ow28CXX7mwQ6SVy1dffLmKF6VF6kas0cWoi4lvgQzpHtEX6qLkyMxvgLeAr5qezrzpkcmC56k0lEXEFOA58x7xT68wUKTcKRstErlrcNxHxG/AscJb5U/ta5Hs5iNxUWlwU7M+IOAacAC4UyZqOaDOFky77uuWmPp4oX5/KzE+BV4CXmF/MNt0lTPoQ9v9Pu1tAWXrHaWZOI2KnfH0r8DDwFPAccBg4AtwLbDrua8XrEfFeZk5qq+ib2s5colhzo37TmXm4yHV7WQDUu5vyZoWWwRfyDXA+Ii52r6080EQXybof193oK+tL71GkPBszOq2fR9cFlr8B8WtumfBx3DMAAAAASUVORK5CYII="><img alt="" style="width:22.606%;animation-delay:0.53s" src="data:image/png;base64,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"><img alt="" style="width:5.212%;animation-delay:0.67s" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAACKCAYAAAA69hPxAAABB0lEQVR42u3dMU7DMBgF4N9NEGLmJr0Wd2XhEtwB0tehDuqQRGIhKfreYske/PnJs13Vk6T18TnJe26Zsm/m/d+6bay7nGo5qWNkdjwtLa7h20Hws+PrN/ijNT8+YvObZZ7qgQMPDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PDw8PD/+TcWX+UlXfdXu0/lL7PaY/1cYvBEv4VNXLxsH+MsPWDVlsNMm5ql57+8OO7afv/9Fa+0zSWmup/5C15oe+lrtxT+O01PgVVAS8wJqX+ewAAAAASUVORK5CYII="><img alt="" style="width:39.091%;animation-delay:0.81s" src="data:image/png;base64,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"></div><div class="ln"></div><div class="tg2">Learn English &middot; A1 &rarr; B1</div></div></div>
+<nav id="nav" style="display:none">
+<button data-t="learn" onclick="go('learn')"><svg class="i"><use href="#ic-learn"/></svg>Learn</button>
+<button data-t="words" onclick="go('words')"><svg class="i"><use href="#ic-text"/></svg>Words</button>
+<button data-t="exam" onclick="go('exam')"><svg class="i"><use href="#ic-exam"/></svg>Exam</button>
+<button data-t="stats" onclick="go('stats')"><svg class="i"><use href="#ic-bars"/></svg>Stats</button>
+<button data-t="pod" onclick="go('pod')"><svg class="i"><use href="#ic-mic"/></svg>Podcast</button>
+<button data-t="profile" onclick="go('profile')"><svg class="i"><use href="#ic-user"/></svg>Profile</button>
+</nav>
+<script>
+var L=[
+{lv:"A1",t:"Hello & To Be",en:"Use am / is / are. I am, you are, he/she/it is, we/you/they are. Add not to make a negative: I am not.",ar:"نستخدم am مع I، و is مع he/she/it، و are مع you/we/they. للنفي نضيف not.",
+w:[["hello","مرحبا"],["name","اسم"],["student","طالب"],["from","من"],["happy","سعيد"]],
+q:[["She ___ a student.",["am","is","are"],1],["I ___ from Morocco.",["am","is","are"],0],["They ___ happy.",["is","am","are"],2]]},
+{lv:"A1",t:"Family & Have/Has",en:"Use have with I/you/we/they and has with he/she/it. I have a sister. He has a brother.",ar:"نستخدم have مع I/you/we/they و has مع he/she/it.",
+w:[["mother","أم"],["father","أب"],["brother","أخ"],["sister","أخت"],["family","عائلة"]],
+q:[["He ___ two sisters.",["have","has","is"],1],["We ___ a big family.",["has","have","are"],1],["I ___ a brother.",["has","have","am"],1]]},
+{lv:"A1",t:"Daily Routine",en:"Present simple: use the base verb. For he/she/it add -s. I wake up at 7. She wakes up at 8.",ar:"المضارع البسيط: الفعل كما هو، ومع he/she/it نضيف s.",
+w:[["wake up","يستيقظ"],["eat","يأكل"],["work","يعمل"],["sleep","ينام"],["every day","كل يوم"]],
+q:[["She ___ at 8 every day.",["work","works","working"],1],["I ___ breakfast at home.",["eat","eats","eating"],0],["He ___ late.",["sleep","sleeps","sleeping"],1]]},
+{lv:"A2",t:"Past Simple",en:"For finished actions, add -ed to regular verbs: I played. Some verbs are irregular: go → went, eat → ate. Questions use did + base verb.",ar:"الماضي البسيط: نضيف ed للأفعال المنتظمة. وبعض الأفعال شاذة مثل go → went. والسؤال بـ did + الفعل الأصلي.",
+w:[["yesterday","أمس"],["went","ذهب"],["bought","اشترى"],["visited","زار"],["last week","الأسبوع الماضي"]],
+q:[["Yesterday I ___ to school.",["go","went","going"],1],["Did you ___ the movie?",["watched","watch","watching"],1],["She ___ a new phone last week.",["buy","buys","bought"],2]]},
+{lv:"A2",t:"Future: Will & Going to",en:"Use will for quick decisions and predictions: I will help you. Use going to for plans: I am going to travel next month.",ar:"will للقرارات السريعة والتوقعات، و going to للخطط المسبقة.",
+w:[["tomorrow","غدا"],["plan","خطة"],["travel","يسافر"],["next month","الشهر القادم"],["maybe","ربما"]],
+q:[["I ___ travel next month. (plan)",["will","am going to","went"],1],["The phone is ringing. I ___ answer it.",["will","am going to","answered"],0],["They ___ visit us tomorrow.",["is going to","are going to","goes to"],1]]},
+{lv:"B1",t:"Present Perfect",en:"Use have/has + past participle for experience or recent results: I have visited Paris. She has finished her work. Use for / since for duration.",ar:"المضارع التام: have/has + التصريف الثالث للفعل. نستخدمه للتجارب والنتائج الحالية.",
+w:[["already","بالفعل"],["never","أبدا"],["ever","في أي وقت"],["since","منذ"],["experience","تجربة"]],
+q:[["I ___ never eaten sushi.",["has","have","am"],1],["She ___ lived here since 2020.",["has","have","is"],0],["Have you ___ to London?",["been","be","was"],0]]},
+{lv:"A1",t:"Articles & Plurals",en:"Use a before consonant sounds and an before vowel sounds: a book, an apple. Add -s for plurals: book → books. Add -es after s, sh, ch, x: box → boxes.",ar:"نستخدم a قبل الحروف الساكنة و an قبل حروف العلة. للجمع نضيف s أو es.",
+w:[["book","كتاب"],["apple","تفاحة"],["box","صندوق"],["bag","حقيبة"],["egg","بيضة"]],
+q:[["I have ___ apple.",["a","an","the"],1],["Two ___ are on the table.",["box","boxes","boxs"],1],["She has ___ car.",["a","an","two"],0]]},
+{lv:"A1",t:"Question Words",en:"What = thing, Where = place, Who = person, When = time, Why = reason. Put the question word first: Where do you live? What is your name?",ar:"What للأشياء، Where للمكان، Who للشخص، When للوقت، Why للسبب. نضع كلمة السؤال في البداية.",
+w:[["what","ماذا"],["where","أين"],["who","من"],["when","متى"],["why","لماذا"]],
+q:[["___ do you live? In Casablanca.",["Who","Where","When"],1],["___ is your teacher? Mr. Ali.",["Who","Where","Why"],0],["___ is your birthday? In May.",["What","When","Where"],1]]},
+{lv:"A1",t:"Can & Can’t",en:"Use can + base verb for ability: I can swim. Negative: cannot or can’t. No -s with he/she: She can swim. Question: Can you help me?",ar:"can تعبر عن القدرة، ولا نضيف s مع he/she. النفي can’t والسؤال Can you...?",
+w:[["swim","يسبح"],["cook","يطبخ"],["drive","يقود"],["speak","يتحدث"],["help","يساعد"]],
+q:[["She ___ speak English.",["can","cans","can to"],0],["I ___ drive. I am too young.",["can","can’t","cans"],1],["___ you help me?",["Can","Are","Do"],0]]},
+{lv:"A1",t:"There is / There are",en:"There is + one thing. There are + many things. Use this/these for near things and that/those for far things.",ar:"There is لشيء واحد، و There are لأشياء كثيرة. this/these للقريب و that/those للبعيد.",
+w:[["near","قريب"],["far","بعيد"],["room","غرفة"],["table","طاولة"],["window","نافذة"]],
+q:[["There ___ two chairs.",["is","are","am"],1],["___ is my book. (in my hand)",["This","That","These"],0],["There ___ a window.",["is","are","be"],0]]},
+{lv:"A2",t:"Comparatives",en:"Short adjectives add -er: tall → taller. Long adjectives use more: more expensive. Use than: She is taller than me. Superlatives: the tallest, the most expensive.",ar:"الصفات القصيرة نضيف er، والطويلة نستخدم more. للتفضيل المطلق: the + est أو the most.",
+w:[["bigger","أكبر"],["cheaper","أرخص"],["expensive","غالي"],["better","أفضل"],["worse","أسوأ"]],
+q:[["My brother is ___ than me.",["tall","taller","tallest"],1],["This phone is ___ expensive than that one.",["more","most","much"],0],["She is the ___ student in class.",["smart","smarter","smartest"],2]]},
+{lv:"A2",t:"Present Continuous",en:"Use am/is/are + verb-ing for actions happening now: I am studying. They are playing. Time words: now, right now, at the moment.",ar:"المضارع المستمر: am/is/are + الفعل مع ing للأفعال التي تحدث الآن.",
+w:[["now","الآن"],["right now","في هذه اللحظة"],["listen","يستمع"],["watch","يشاهد"],["study","يدرس"]],
+q:[["She is ___ now.",["reads","reading","read"],1],["They ___ playing football.",["is","are","am"],1],["I am ___ English.",["study","studies","studying"],2]]},
+{lv:"A2",t:"Should & Must",en:"should = advice. must = strong necessity. mustn’t = it is forbidden. Use the base verb after them: You should rest. You must wear a seat belt.",ar:"should للنصيحة، must للضرورة، mustn’t للمنع. بعدها الفعل الأصلي.",
+w:[["advice","نصيحة"],["rule","قاعدة"],["healthy","صحي"],["safe","آمن"],["careful","حذر"]],
+q:[["You ___ drink more water. (advice)",["should","mustn’t","did"],0],["You ___ stop at a red light.",["should","must","can"],1],["You ___ use your phone here. It is forbidden.",["mustn’t","should","can"],0]]},
+{lv:"A2",t:"Much, Many & A lot of",en:"many + countable things: many books. much + uncountable things: much water. We use much/many in questions and negatives. A lot of works for both.",ar:"many مع ما يعد، و much مع ما لا يعد. و a lot of تصلح للاثنين.",
+w:[["water","ماء"],["money","مال"],["time","وقت"],["people","ناس"],["enough","كاف"]],
+q:[["How ___ money do you have?",["many","much","few"],1],["There aren’t ___ chairs.",["much","many","a little"],1],["I have a ___ of friends.",["lot","much","many"],0]]},
+{lv:"B1",t:"First Conditional",en:"If + present simple, will + base verb: If it rains, I will stay home. Use it for real, possible future situations. unless = if not.",ar:"الشرط الأول: If + مضارع بسيط، will + الفعل الأصلي. للمواقف الممكنة في المستقبل.",
+w:[["if","إذا"],["unless","ما لم"],["weather","الطقس"],["probably","على الأرجح"],["result","نتيجة"]],
+q:[["If I study, I ___ pass.",["will","would","passed"],0],["If she ___ early, she will catch the bus.",["leaves","left","will leave"],0],["We will go out ___ it rains.",["if","unless","when"],1]]},
+{lv:"B1",t:"Passive Voice",en:"Use be + past participle: The book was written by Ali. English is spoken worldwide. Use the passive when the action is more important than who did it.",ar:"المبني للمجهول: be + التصريف الثالث للفعل. نستخدمه عندما يهمنا الفعل أكثر من الفاعل.",
+w:[["built","بُني"],["written","مكتوب"],["invented","اخترع"],["discovered","اكتشف"],["made","صنع"]],
+q:[["English ___ spoken worldwide.",["is","does","has"],0],["The window ___ broken yesterday.",["is","was","were"],1],["These cars ___ made in Japan.",["is","are","be"],1]]},
+{lv:"B1",t:"Used to",en:"used to + base verb = a past habit that is not true now: I used to play football every day. Negative and questions: didn’t use to / Did you use to...?",ar:"used to للعادات في الماضي التي توقفت. بعدها الفعل الأصلي.",
+w:[["habit","عادة"],["childhood","الطفولة"],["anymore","لم يعد"],["often","غالبا"],["change","تغيير"]],
+q:[["I ___ live in a village.",["use to","used to","using to"],1],["She didn’t ___ like fish.",["used to","use to","uses to"],1],["We ___ play outside every day.",["used to","are used","use"],0]]},
+{lv:"B1",t:"Second Conditional",en:"If + past simple, would + base verb for unreal or imaginary situations: If I had a million dollars, I would travel the world.",ar:"الشرط الثاني: If + ماضي بسيط، would + الفعل الأصلي. للمواقف الخيالية أو غير الواقعية.",
+w:[["imagine","يتخيل"],["dream","حلم"],["million","مليون"],["travel","يسافر"],["wish","يتمنى"]],
+q:[["If I ___ rich, I would buy a house.",["am","were","will be"],1],["She ___ help you if she had time.",["would","will","did"],0],["If we ___ more time, we would stay.",["have","had","will have"],1]]},
+{lv:"A1",t:"Writing: Capitals & Full Stops",en:"Start every sentence with a capital letter and end it with a full stop (.). Use capitals for I, names, days and months: My name is Sara. I study on Monday.",ar:"ابدأ كل جملة بحرف كبير وانهها بنقطة. استخدم الحرف الكبير مع I والأسماء والأيام والشهور.",
+w:[["sentence","جملة"],["capital","حرف كبير"],["full stop","نقطة"],["comma","فاصلة"],["word","كلمة"]],
+q:[["Which sentence is correct?",["my name is sara.","My name is Sara.","my name is Sara"],1],["Which day is written correctly?",["monday","Monday","monDay"],1],["A sentence ends with a ___.",["comma","full stop","capital"],1]],
+wr:{p:"Write 3 sentences about yourself. Example: My name is Sara. I am from Morocco. I like music.",m:10,r:[]}},
+{lv:"A1",t:"Writing About Yourself",en:"Use short sentences with I am, I have, I like and I live in. Join two ideas with and. Example: I am Sara and I am 20. I live in Casablanca. I like music and football.",ar:"استخدم جملا قصيرة مع I am و I like و I live in. اربط فكرتين بـ and.",
+w:[["introduce","يقدم"],["hobby","هواية"],["favorite","مفضل"],["live","يسكن"],["address","عنوان"]],
+q:[["I ___ in Casablanca.",["live","lives","living"],0],["I like music ___ football.",["but","and","so"],1],["My ___ is reading. (activity you enjoy)",["address","hobby","title"],1]],
+wr:{p:"Write about yourself: your name, age, city and one hobby (at least 25 words). Use I am and I like.",m:25,r:[["I am","i am"],["I like or I love","i (like|love)"]]}},
+{lv:"A2",t:"Writing: Linking Words",en:"Use and to add, but to contrast, because to give a reason, and so to show a result. I was tired, so I slept. I like tea but I don’t like coffee. I stayed home because it was raining.",ar:"and للإضافة، but للتضاد، because للسبب، so للنتيجة.",
+w:[["because","لأن"],["but","لكن"],["so","لذلك"],["also","أيضا"],["then","ثم"]],
+q:[["I stayed home ___ it was raining.",["but","because","so"],1],["I was tired, ___ I went to bed.",["because","so","but"],1],["She is clever ___ lazy.",["so","and","but"],2]],
+wr:{p:"Write about your day (at least 15 words). Use because, but and so.",m:15,r:[["because","because"],["but","(^|[^a-z])but([^a-z]|$)"],["so","(^|[^a-z])so([^a-z]|$)"]]}},
+{lv:"A2",t:"Writing an Email",en:"Start with Dear + name. Say the reason in the first line. End with Best wishes or Kind regards, then your name. Example: Dear Ali, I am writing to ask about the class. Best wishes, Sara.",ar:"ابدأ بـ Dear + الاسم، واذكر السبب في السطر الأول، وانهِ بـ Best wishes أو Kind regards ثم اسمك.",
+w:[["dear","عزيزي"],["subject","الموضوع"],["regards","تحياتي"],["attach","يرفق"],["message","رسالة"]],
+q:[["Start an email to Ali: ___ Ali,",["Hello to","Dear","Hi to"],1],["End a formal email with ___.",["Kind regards","See you","Bye bye"],0],["I am ___ to ask about the class.",["write","writing","wrote"],1]],
+wr:{p:"Write a short email to a friend (at least 25 words). Start with Dear and end with Best wishes or Kind regards.",m:25,r:[["Dear","^dear"],["Best wishes or Kind regards","best wishes|kind regards|regards"]]}},
+{lv:"B1",t:"Writing a Paragraph",en:"A good paragraph has a topic sentence, supporting details and a conclusion. Use linking words: First, Then, Finally. Example: Exercise is important. First, it keeps you healthy. Then, it reduces stress. Finally, it gives you energy.",ar:"الفقرة الجيدة فيها جملة رئيسية وتفاصيل وخاتمة. استخدم First و Then و Finally للترتيب.",
+w:[["topic","موضوع"],["detail","تفصيل"],["conclusion","خاتمة"],["example","مثال"],["support","يدعم"]],
+q:[["The first sentence of a paragraph is the ___ sentence.",["final","topic","random"],1],["Use ___ to give an example.",["however","finally","for example"],2],["___, I opened the book. Then, I started reading.",["Finally","First","However"],1]],
+wr:{p:"Write a paragraph (at least 40 words) about why English is important. Use First, Then and Finally.",m:40,r:[["First","first"],["Then","then"],["Finally","finally"]]}},
+{lv:"B1",t:"Writing: Your Opinion",en:"Give your opinion with In my opinion, I believe or I think. Show contrast with however or although. Give a result with therefore. Example: In my opinion, learning English is useful. However, it takes time.",ar:"للرأي: In my opinion / I believe. للتضاد: however / although. للنتيجة: therefore.",
+w:[["opinion","رأي"],["believe","يعتقد"],["however","لكن / مع ذلك"],["therefore","لذلك"],["agree","يوافق"]],
+q:[["___, learning English is useful. (your opinion)",["In my opinion","Therefore","However"],0],["It is difficult. ___, I enjoy it.",["Because","However","Therefore"],1],["She studied hard, ___ she passed.",["however","therefore","although"],1]],
+wr:{p:"Write your opinion about learning English online (at least 40 words). Use In my opinion and however.",m:40,r:[["In my opinion / I believe / I think","in my opinion|i believe|i think"],["however / although","however|although"]]}}
+];
+var EXS=[
+"I am a student.|أنا طالب.;She is from Morocco.|هي من المغرب.;We are happy today.|نحن سعداء اليوم.;He is not tired.|هو ليس متعبا.",
+"I have a sister.|عندي أخت.;He has two brothers.|عنده أخوان.;We have a big family.|عندنا عائلة كبيرة.;She has a small house.|عندها منزل صغير.",
+"I wake up at seven.|أستيقظ في السابعة.;She works every day.|هي تعمل كل يوم.;He eats breakfast at home.|هو يتناول الفطور في المنزل.;They sleep late on Sunday.|هم ينامون متأخرين يوم الأحد.",
+"Yesterday I went to school.|أمس ذهبت إلى المدرسة.;She bought a new phone.|اشترت هاتفا جديدا.;Did you watch the movie?|هل شاهدت الفيلم؟;We visited Rabat last week.|زرنا الرباط الأسبوع الماضي.",
+"I am going to travel next month.|سأسافر الشهر القادم.;I will help you.|سأساعدك.;They are going to visit us tomorrow.|سيزوروننا غدا.;Maybe it will rain.|ربما تمطر.",
+"I have visited Paris.|لقد زرت باريس.;She has finished her work.|لقد أنهت عملها.;I have never eaten sushi.|لم آكل السوشي أبدا.;We have lived here since 2020.|نسكن هنا منذ 2020.",
+"I have a book and an apple.|عندي كتاب وتفاحة.;She has a car.|عندها سيارة.;There are two boxes on the table.|يوجد صندوقان على الطاولة.;He has three bags.|عنده ثلاث حقائب.",
+"What is your name?|ما اسمك؟;Where do you live?|أين تسكن؟;Who is your teacher?|من هو معلمك؟;Why are you happy?|لماذا أنت سعيد؟",
+"I can swim.|أستطيع السباحة.;She can speak English.|هي تستطيع التحدث بالإنجليزية.;I can’t drive.|لا أستطيع القيادة.;Can you help me?|هل تستطيع مساعدتي؟",
+"There is a bed in the room.|يوجد سرير في الغرفة.;There are two chairs here.|يوجد كرسيان هنا.;This is my book.|هذا كتابي.;Those shops are far.|تلك المتاجر بعيدة.",
+"My brother is taller than me.|أخي أطول مني.;This phone is more expensive.|هذا الهاتف أغلى.;She is the smartest student.|هي أذكى طالبة.;Today is better than yesterday.|اليوم أفضل من أمس.",
+"I am studying English now.|أدرس الإنجليزية الآن.;She is reading a book.|هي تقرأ كتابا.;They are playing football.|هم يلعبون كرة القدم.;It is raining.|إنها تمطر.",
+"You should drink more water.|يجب أن تشرب ماء أكثر.;You must stop at a red light.|يجب أن تتوقف عند الضوء الأحمر.;You mustn’t use your phone here.|ممنوع استخدام هاتفك هنا.;She should rest.|عليها أن ترتاح.",
+"How much money do you have?|كم من المال عندك؟;There aren’t many chairs.|لا يوجد كراسي كثيرة.;I drink a lot of water.|أشرب الكثير من الماء.;We have little time.|عندنا وقت قليل.",
+"If it rains, I will stay home.|إذا أمطرت سأبقى في البيت.;If you study, you will pass.|إذا درست ستنجح.;We will go out unless it rains.|سنخرج ما لم تمطر.;If she leaves early, she will catch the bus.|إذا غادرت مبكرا ستلحق بالحافلة.",
+"English is spoken worldwide.|تُتحدث الإنجليزية في العالم كله.;The book was written by Ali.|كُتب الكتاب بواسطة علي.;These cars are made in Japan.|هذه السيارات تُصنع في اليابان.;The window was broken yesterday.|كُسرت النافذة أمس.",
+"I used to live in a village.|كنت أسكن في قرية.;She didn’t use to like fish.|لم تكن تحب السمك.;We used to play outside every day.|كنا نلعب في الخارج كل يوم.;Did you use to walk to school?|هل كنت تمشي إلى المدرسة؟",
+"If I were rich, I would buy a house.|لو كنت غنيا لاشتريت منزلا.;If I had more time, I would travel.|لو كان عندي وقت أكثر لسافرت.;She would help you if she could.|كانت ستساعدك لو استطاعت.;If we had a car, we would visit you.|لو كان عندنا سيارة لزرناك.",
+"My name is Sara.|اسمي سارة.;I study on Monday.|أدرس يوم الاثنين.;We live in Casablanca.|نسكن في الدار البيضاء.;Is this your book?|هل هذا كتابك؟",
+"I am Sara and I am twenty.|أنا سارة وعمري عشرون.;I live in Casablanca.|أسكن في الدار البيضاء.;I like music and football.|أحب الموسيقى وكرة القدم.;My hobby is reading.|هوايتي القراءة.",
+"I stayed home because it was raining.|بقيت في البيت لأنها كانت تمطر.;I was tired, so I went to bed.|كنت متعبا فذهبت إلى النوم.;She is clever but lazy.|هي ذكية لكنها كسولة.;I like tea and coffee.|أحب الشاي والقهوة.",
+"Dear Ali,|عزيزي علي،;I am writing to ask about the class.|أكتب لأسأل عن الحصة.;Thank you for your help.|شكرا لمساعدتك.;Best wishes, Sara|مع أطيب التمنيات، سارة",
+"Exercise is important.|الرياضة مهمة.;First, it keeps you healthy.|أولا، تحافظ على صحتك.;Then, it reduces stress.|ثانيا، تقلل التوتر.;Finally, it gives you energy.|وأخيرا، تعطيك طاقة.",
+"In my opinion, learning English is useful.|في رأيي، تعلم الإنجليزية مفيد.;I believe it opens many doors.|أعتقد أنه يفتح أبوابا كثيرة.;However, it takes time.|لكنه يحتاج وقتا.;Therefore, I study every day.|لذلك أدرس كل يوم."
+];
+function EXN(i){return (EXS[i]||"").split(";").length}
+var X=[
+"morning|صباح;teacher|معلم;friend|صديق;nice|لطيف;country|بلد;city|مدينة;age|عمر;old|قديم;young|شاب;tired|متعب;good|جيد;bad|سيء;welcome|أهلا بك;please|من فضلك;thanks|شكرا",
+"son|ابن;daughter|ابنة;uncle|عم;aunt|عمة;cousin|ابن العم;grandmother|جدة;grandfather|جد;husband|زوج;wife|زوجة;parents|الوالدان;baby|طفل رضيع;child|طفل;house|منزل;home|بيت;love|يحب",
+"breakfast|فطور;lunch|غداء;dinner|عشاء;shower|دش;brush|يفرشي;wash|يغسل;school|مدرسة;office|مكتب;start|يبدأ;finish|ينتهي;always|دائما;usually|عادة;sometimes|أحيانا;never|أبدا;late|متأخر",
+"ago|منذ;before|قبل;after|بعد;saw|رأى;ate|أكل;took|أخذ;came|جاء;did|فعل;said|قال;met|قابل;called|اتصل;opened|فتح;closed|أغلق;lived|عاش;worked|عمل",
+"soon|قريبا;later|لاحقا;tonight|الليلة;next year|السنة القادمة;next week|الأسبوع القادم;hope|يأمل;promise|وعد;decide|يقرر;ready|جاهز;begin|يبدأ;future|مستقبل;holiday|عطلة;ticket|تذكرة;meeting|اجتماع;party|حفلة",
+"finished|أنهى;seen|رأى;done|فعل;gone|ذهب;arrived|وصل;just|للتو;yet|بعد;recently|مؤخرا;lately|في الآونة الأخيرة;so far|حتى الآن;many times|مرات كثيرة;job|وظيفة;abroad|في الخارج;learn|يتعلم;try|يحاول",
+"pen|قلم;chair|كرسي;key|مفتاح;orange|برتقالة;umbrella|مظلة;watch|ساعة يد;glass|كوب;class|فصل;dish|طبق;bus|حافلة;man|رجل;woman|امرأة;tooth|سن;foot|قدم;person|شخص",
+"which|أي;how|كيف;whose|لمن;how much|كم السعر;how many|كم عدد;how old|كم العمر;question|سؤال;answer|إجابة;ask|يسأل;reply|يرد;know|يعرف;understand|يفهم;repeat|يعيد;meaning|معنى;spell|يتهجى",
+"dance|يرقص;sing|يغني;run|يركض;jump|يقفز;write|يكتب;read|يقرأ;draw|يرسم;play|يلعب;fly|يطير;ride|يركب;lift|يرفع;carry|يحمل;open|يفتح;ability|قدرة;skill|مهارة",
+"bed|سرير;kitchen|مطبخ;bathroom|حمام;garden|حديقة;street|شارع;shop|متجر;park|حديقة عامة;bank|بنك;hospital|مستشفى;station|محطة;corner|زاوية;behind|خلف;between|بين;next to|بجانب;opposite|مقابل",
+"taller|أطول;shorter|أقصر;faster|أسرع;slower|أبطأ;older|أكبر سنا;younger|أصغر سنا;heavier|أثقل;lighter|أخف;easier|أسهل;harder|أصعب;best|الأفضل;worst|الأسوأ;same|نفس;different|مختلف;similar|مشابه",
+"wait|ينتظر;talk|يتحدث;walk|يمشي;laugh|يضحك;cry|يبكي;rain|مطر;sit|يجلس;stand|يقف;wear|يرتدي;build|يبني;drink|يشرب;meet|يلتقي;today|اليوم;currently|حاليا;shout|يصرخ",
+"health|صحة;doctor|طبيب;medicine|دواء;exercise|تمرين;rest|راحة;belt|حزام;traffic|مرور;law|قانون;danger|خطر;dangerous|خطير;allowed|مسموح;forbidden|ممنوع;obey|يطيع;necessary|ضروري;choice|خيار",
+"little|قليل;few|قليل العدد;bottle|زجاجة;cup|فنجان;bread|خبز;milk|حليب;rice|أرز;sugar|سكر;salt|ملح;coffee|قهوة;tea|شاي;juice|عصير;meat|لحم;fruit|فاكهة;vegetables|خضروات",
+"sunny|مشمس;cold|بارد;hot|حار;snow|ثلج;wind|رياح;storm|عاصفة;miss|يفوت;lose|يخسر;win|يفوز;succeed|ينجح;fail|يفشل;exam|امتحان;score|درجة;otherwise|وإلا;perhaps|ربما",
+"create|يصنع;send|يرسل;sell|يبيع;produce|ينتج;repair|يصلح;clean|ينظف;paint|يطلي;invite|يدعو;publish|ينشر;translate|يترجم;damage|ضرر;steal|يسرق;arrest|يعتقل;award|جائزة;deliver|يوصل",
+"village|قرية;neighbor|جار;toy|لعبة;grow up|يكبر;remember|يتذكر;forget|ينسى;memory|ذكرى;used|معتاد;once|ذات مرة;those days|تلك الأيام;tradition|تقليد;modern|حديث;simple|بسيط;quiet|هادئ;playground|ملعب",
+"rich|غني;poor|فقير;famous|مشهور;president|رئيس;island|جزيرة;ocean|محيط;mountain|جبل;castle|قلعة;car|سيارة;luxury|رفاهية;adventure|مغامرة;chance|فرصة;if only|ليت;suppose|افترض;idea|فكرة",
+"paper|ورقة;notebook|دفتر;letter|حرف;spelling|إملاء;mistake|خطأ;correct|صحيح;line|سطر;page|صفحة;title|عنوان;question mark|علامة استفهام;paragraph|فقرة;copy|ينسخ;check|يتحقق;handwriting|خط اليد;erase|يمحو",
+"nationality|جنسية;birthday|عيد ميلاد;language|لغة;Arabic|العربية;French|الفرنسية;English|الإنجليزية;neighborhood|حي;favorite color|لون مفضل;music|موسيقى;football|كرة القدم;reading|قراءة;cooking|طبخ;movies|أفلام;describe|يصف;personality|شخصية",
+"first|أولا;next|بعد ذلك;finally|أخيرا;after that|بعد ذلك مباشرة;for example|مثلا;or|أو;while|بينما;until|حتى;although|مع أن;instead|بدلا من;reason|سبب;result|نتيجة;connect|يربط;join|يضم;both|كلاهما",
+"inbox|صندوق الوارد;email address|عنوان البريد;sender|المرسل;receive|يستلم;formal|رسمي;informal|غير رسمي;greeting|تحية;signature|توقيع;request|طلب;invitation|دعوة;appointment|موعد;thank you|شكرا لك;sorry|آسف;wish|يتمنى;information|معلومات",
+"introduction|مقدمة;main idea|الفكرة الرئيسية;explain|يشرح;summary|ملخص;order|ترتيب;sequence|تسلسل;in addition|بالإضافة إلى;as a result|نتيجة لذلك;in conclusion|في الختام;for instance|على سبيل المثال;clear|واضح;organize|ينظم;draft|مسودة;edit|يحرر;improve|يحسن",
+"disagree|لا يوافق;advantage|ميزة;disadvantage|عيب;benefit|فائدة;argue|يجادل;evidence|دليل;on the other hand|من ناحية أخرى;in fact|في الواقع;personally|شخصيا;strongly|بقوة;important|مهم;useful|مفيد;convince|يقنع;balanced|متوازن;point of view|وجهة نظر"
+];
+X.forEach(function(s,i){var l=L[i];s.split(";").forEach(function(p){var a=p.split("|");l.w.push([a[0],a[1]])});
+[5,8,10,12,14,17,19].forEach(function(ix,k){var w=l.w,c=w[ix],d=[w[(ix+3)%w.length],w[(ix+9)%w.length]],t=k%2,o=d.map(function(x){return x[t?0:1]});
+o.splice(k%3,0,c[t?0:1]);l.q.push([t?"Choose the English word: "+c[1]:"What does “"+c[0]+"” mean?",o,k%3])})});
+var S={xp:0,done:{},act:{},right:0,total:0},tab="profile";
+try{var s=localStorage.getItem("epath");if(s)S=Object.assign(S,JSON.parse(s))}catch(e){}
+function save(){try{localStorage.setItem("epath",JSON.stringify(S))}catch(e){}}
+S.pf=Object.assign({bg:"lime",anim:true,sound:true,cv:false,vn:0,vt:"woman"},S.pf||{});
+function applyPf(){document.body.setAttribute("data-bg",S.pf.bg);document.body.classList.toggle("still",!S.pf.anim)}applyPf();
+var app=document.getElementById("app"),nav=document.getElementById("nav");
+function ic(n,c){return '<svg class="i'+(c?' '+c:'')+'"><use href="#ic-'+n+'"/></svg>'}
+function slug(t){return String(t).toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"").slice(0,80)}
+function pickVoice(){try{var vs=speechSynthesis.getVoices().filter(function(v){return /^en/i.test(v.lang)});if(!vs.length)return null;if(S.pf.vn>0)return vs[(S.pf.vn-1)%vs.length];var vt=S.pf.vt||"woman",loc=vs.filter(function(v){return v.localService!==false}),pool=loc.length?loc:vs;
+var F=/female|samantha|victoria|karen|moira|tessa|fiona|susan|zira|hazel|serena|allison|ava|kate|joanna|emma|amy|aria|jenny|libby|sonia/i,M=/male|daniel|fred|alex|david|mark|george|james|thomas|arthur|oliver|ralph|bruce|guy|ryan/i;
+var r=vt==="woman"?pool.filter(function(v){return F.test(v.name)}):pool.filter(function(v){return M.test(v.name)&&!/female/i.test(v.name)});
+return r[0]||pool[0]}catch(e){return null}}
+function tts(t){try{var u=new SpeechSynthesisUtterance(t),vt=S.pf&&S.pf.vt||"woman";u.lang="en-US";if(vt==="ogre"){u.pitch=0;u.rate=1.2+Math.random()*.3}else if(vt==="man"){u.pitch=.8;u.rate=.85}else{u.pitch=1.15;u.rate=.85}var v=pickVoice();if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function say(t){if(S.pf&&S.pf.sound===false)return;
+if(S.pf&&S.pf.cv){var f=0,fb=function(){if(!f){f=1;tts(t)}};try{var a=new Audio("audio/"+slug(t)+".mp3");a.onerror=fb;var p=a.play();if(p&&p.catch)p.catch(fb)}catch(e){fb()}return}
+tts(t)}
+function esc(x){return String(x).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function dk(d){return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function streak(){var d=new Date(),n=0;if(!S.act[dk(d)])d.setDate(d.getDate()-1);while(S.act[dk(d)]){n++;d.setDate(d.getDate()-1)}return n}
+function go(t){tab=t;render()}
+function render(){RS=0;nav.style.display="flex";nav.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b.dataset.t===tab)});
+if(tab==="learn")learn();else if(tab==="words")words();else if(tab==="exam")exam();else if(tab==="settings")settings();else if(tab==="stats")stats();else if(tab==="pod")pod();else if(tab==="admin")admin();else profile();window.scrollTo(0,0)}
+function profile(){
+var u=S.user,lvl=Math.floor(S.xp/100)+1,acc=S.total?Math.round(S.right/S.total*100):0,st=streak(),h="";
+if(ADMIN)h+='<button class="card task" style="margin-bottom:12px" onclick="go(\'admin\')"><span class="coin">'+ic("gear","lg")+'</span><span><b>Admin panel</b><br><span class="mut">Edit lessons, podcasts, texts and options</span></span></button>';
+h+='<div class="top"><div class="ic"><button onclick="go(\'settings\')">'+ic("gear")+'</button><span>'+ic("bell")+'</span></div><div class="chip">'+ic("star")+' '+S.xp+' XP<button class="plus" onclick="go(\'learn\')">+</button></div></div>';
+h+='<div class="hero"><div class="ring"><span>'+u.av+'</span></div><h1>'+esc(u.name)+'</h1><div class="mut">@'+esc(u.name.toLowerCase().replace(/\s+/g,"."))+' · Level '+u.lv+' → B1</div></div>';
+h+='<div class="stats"><div><b>'+ic("target")+' '+acc+'%</b><div class="mut">Accuracy</div></div><div><b>'+ic("bars")+' '+lvl+'</b><div class="mut">Level</div></div><div><b>'+ic("cal")+' '+st+'</b><div class="mut">Days</div></div></div>';
+var t=new Date(),dow=(t.getDay()+6)%7,names=["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];h+='<div class="week">';
+for(var i=0;i<7;i++){var d=new Date(t);d.setDate(t.getDate()-dow+i);h+='<div class="day'+(S.act[dk(d)]?' on':'')+(i===dow?' today':'')+'"><u></u>'+names[i]+'<br>'+d.getDate()+'</div>'}
+h+='</div>';
+var wl=0;Object.keys(S.done).forEach(function(i){wl+=L[i].w.length});
+h+='<div class="g2"><div class="card" style="text-align:center"><div>'+ic("text","lg")+'</div><b>Words</b><div style="color:var(--ac)">'+wl+' learned</div></div>';
+h+='<div class="card streak"><span class="tr">'+ic("trophy")+'</span><b>Keep it up!</b><div class="mut" style="max-width:60%">'+(st?st+' days in a row, you are here!':'Study today to start your streak!')+'</div><div class="dots">';
+for(var j=0;j<7;j++)h+='<i class="'+(j<Math.min(st,7)?'on':'')+'"></i>';
+h+='</div></div></div>';
+h+='<button class="card task" onclick="go(\'learn\')"><span class="coin">'+ic("target","lg")+'</span><span><b>Complete new lessons</b><br><span class="mut">Get 10 bonus XP for every correct answer in your quizzes</span></span></button>';
+app.innerHTML=h}
+function lc(lv){return lv==="A1"?"#5ee08a":lv==="A2"?"#5eb0ff":"#c4a1ff"}
+function learn(){
+var n=Object.keys(S.done).length,pc=Math.round(n/L.length*100),h='<h1>Learn</h1><div class="card"><div style="display:flex;justify-content:space-between"><b>Your path to B1</b><b style="color:var(--ac)">'+pc+'%</b></div><div class="bar"><i style="width:'+pc+'%"></i></div><span class="badge">'+n+' of '+L.length+' lessons complete. Repeat the words aloud every day.</span></div>';
+h+='<button class="card task" style="margin:14px 0 0" onclick="picHome()"><span class="coin">'+ic("img","lg")+'</span><span><b>Picture exercise</b><br><span class="mut">See the picture and learn its English name</span></span></button>';
+["A1","A2","B1"].forEach(function(lv){var ls=[],dn=0;L.forEach(function(l,i){if(l.lv===lv){ls.push(i);if(S.done[i])dn++}});
+h+='<div class="lvh" style="--c:'+lc(lv)+'"><span class="pill">'+lv+'</span><span class="mut">'+dn+' / '+ls.length+' done</span></div><div class="tg">';
+ls.forEach(function(i,k){var l=L[i];h+='<button class="tile" style="--c:'+lc(lv)+'" onclick="open_('+i+')"><div><span class="no">'+(k+1)+'</span><b>'+esc(l.t)+'</b><span class="badge">'+EXN(i)+' examples · '+l.q.length+' questions'+(l.wr?' · writing':'')+'</span></div><div class="ft">'+(S.done[i]?'<span class="done">✓ '+S.done[i]+'/'+l.q.length+'</span>':'<span class="badge">Not started</span>')+ic("play","gold")+'</div></button>'});
+h+='</div>'});
+app.innerHTML=h}
+var WL="all",WQ="";
+function wlv(v){WL=v;words()}
+function wf(){WQ=document.getElementById("wq").value.toLowerCase();var q=WQ;
+document.querySelectorAll(".wt").forEach(function(t){t.style.display=(!q||t.dataset.s.indexOf(q)>-1)?"":"none"});
+document.querySelectorAll("details.dl").forEach(function(d){var vis=false;d.querySelectorAll(".wt").forEach(function(t){if(t.style.display!=="none")vis=true});d.style.display=vis?"":"none";if(q)d.open=true})}
+function words(){
+var tot=0;L.forEach(function(l){tot+=l.w.length});
+var h='<h1>Words</h1><div class="mut">'+tot+' words. Tap a word to hear it.</div><input id="wq" placeholder="Search a word or its Arabic meaning" value="'+esc(WQ)+'" oninput="wf()" style="margin-top:10px"><div class="chips">';
+["all","A1","A2","B1"].forEach(function(v){h+='<button class="chip2'+(WL===v?' on':'')+'" onclick="wlv(\''+v+'\')">'+(v==="all"?"All":v)+'</button>'});
+h+='</div>';
+L.forEach(function(l){if(WL!=="all"&&l.lv!==WL)return;
+h+='<details class="card dl" style="--c:'+lc(l.lv)+'"><summary><span><span class="pill" style="font-size:.75rem;padding:2px 10px">'+l.lv+'</span> <b>'+esc(l.t)+'</b></span><span class="mut">'+l.w.length+' words</span></summary><div class="wg">';
+l.w.forEach(function(w){h+='<button class="wt" data-s="'+esc((w[0]+' '+w[1]).toLowerCase())+'" onclick="say(\''+w[0]+'\')"><b>'+ic("vol")+' '+esc(w[0])+'</b><span>'+esc(w[1])+'</span></button>'});
+h+='</div></details>'});
+app.innerHTML=h;if(WQ)wf()}
+function open_(i){
+var l=L[i],h='<button class="ghost" onclick="render()">← Back</button><h2>'+esc(l.t)+' <span class="badge">'+l.lv+'</span></h2><div class="card"><b>Grammar</b><p>'+esc(l.en)+'</p><div class="ar">'+esc(l.ar)+'</div></div><div class="card"><b>Examples</b> <span class="badge">(tap a sentence to listen)</span>';
+(EXS[i]||"").split(";").forEach(function(p){var a=p.split("|");h+='<button class="word ex" onclick="say(this.dataset.t)" data-t="'+esc(a[0])+'"><span><b>'+ic("vol")+' '+esc(a[0])+'</b></span><span class="ar" style="margin:0">'+esc(a[1])+'</span></button>'});
+h+='</div>'+(l.wr?'<div class="card"><b>Writing practice</b><p>'+esc(l.wr.p)+'</p><textarea id="wt" rows="5" placeholder="Write here..."></textarea><button class="btn" onclick="wcheck('+i+')">Check my writing</button><div id="wf" style="margin-top:10px"></div></div>':'')+'<button class="btn" onclick="quiz('+i+')">Start quiz</button>';
+app.innerHTML=h;window.scrollTo(0,0)}
+function wcheck(i){
+var l=L[i],t=document.getElementById("wt").value.trim(),n=t?t.split(/\s+/).length:0,ok=[];
+ok.push(["At least "+l.wr.m+" words (you wrote "+n+")",n>=l.wr.m]);
+ok.push(["Every sentence starts with a capital letter",/^[A-Z]/.test(t)&&!/[.!?]\s+[a-z]/.test(t)]);
+ok.push(["Ends with . ! or ?",/[.!?]$/.test(t)]);
+(l.wr.r||[]).forEach(function(r){ok.push(["Uses: "+r[0],new RegExp(r[1],"i").test(t)])});
+var all=ok.every(function(x){return x[1]}),h='';
+ok.forEach(function(x){h+='<div class="word" style="cursor:default"><span>'+esc(x[0])+'</span><b style="color:'+(x[1]?'var(--ac)':'var(--bad)')+'">'+(x[1]?'✓':'✗')+'</b></div>'});
+S.wrote=S.wrote||{};
+if(all&&!S.wrote[i]){S.wrote[i]=1;S.xp+=20;S.act[dk(new Date())]=(S.act[dk(new Date())]||0)+1;h+='<p class="done">Great writing! +20 XP</p>'}
+else if(all)h+='<p class="done">Great writing!</p>';
+else h+='<p class="mut">Fix the ✗ items and check again.</p>';
+save();document.getElementById("wf").innerHTML=h}
+function quiz(i,k,sc){
+k=k||0;sc=sc||0;var l=L[i];
+if(k>=l.q.length){
+if(!S.done[i]||sc>S.done[i]){S.xp+=sc*(+CFG.xpQ||10);S.done[i]=Math.max(sc,S.done[i]||0)}save();
+app.innerHTML='<div class="card"><h2>'+(sc===l.q.length?"Perfect! 🎉":"Good work!")+'</h2><p>Score: '+sc+' / '+l.q.length+'</p><button class="btn" onclick="quiz('+i+')">Try again</button> <button class="ghost" onclick="go(\'profile\')">See my profile</button></div>';return}
+var q=l.q[k],h='<div class="bar"><i style="width:'+Math.round(k/l.q.length*100)+'%"></i></div><div class="card"><b>'+esc(q[0])+'</b><div id="o">';
+q[1].forEach(function(o,j){h+='<button class="opt" onclick="ans('+i+','+k+','+sc+','+j+')">'+esc(o)+'</button>'});
+h+='</div></div>';app.innerHTML=h}
+function ans(i,k,sc,j){
+var q=L[i].q[k];
+document.querySelectorAll(".opt").forEach(function(x,n){x.disabled=true;if(n===q[2])x.classList.add("ok");else if(n===j)x.classList.add("bad")});
+S.total++;S.act[dk(new Date())]=(S.act[dk(new Date())]||0)+1;
+if(j===q[2]){sc++;S.right++;say(q[0].replace("___",q[1][q[2]]))}
+save();
+var nb=document.createElement("button");nb.className="btn";nb.style.marginTop="10px";nb.textContent="Next";
+nb.onclick=function(){quiz(i,k+1,sc)};document.getElementById("o").appendChild(nb)}
+function tg(k){S.pf[k]=!S.pf[k];save();applyPf();settings()}
+function nextVoice(){var n=0;try{n=speechSynthesis.getVoices().filter(function(v){return /^en/i.test(v.lang)}).length}catch(e){}S.pf.vn=(S.pf.vn+1)%(n+1);save();settings();say("Hello, this is your voice.")}
+function nextStyle(){var o=["woman","man","ogre"];S.pf.vt=o[(o.indexOf(S.pf.vt||"woman")+1)%3];S.pf.vn=0;save();settings();say("Hello, welcome to Lexivo.")}
+function setBg(b){S.pf.bg=b;save();applyPf();settings()}
+var RS=0;
+function rst(){if(!RS){RS=1;settings();return}S.xp=0;S.done={};S.act={};S.right=0;S.total=0;S.exams=[];RS=0;save();go("profile")}
+function settings(){
+var u=S.user,dn=Object.keys(S.done),wl=0,tw=0,ex=S.exams||[];
+dn.forEach(function(i){wl+=L[i].w.length});L.forEach(function(l){tw+=l.w.length});
+var acc=S.total?Math.round(S.right/S.total*100):0;
+function r(a,b){return '<div class="word" style="cursor:default"><span>'+a+'</span><b>'+b+'</b></div>'}
+var h='<button class="ghost" onclick="go(\'profile\')">← Back</button><h1>Settings</h1>';
+h+='<div class="card hero" style="margin-top:12px"><div class="ring" style="width:80px;height:80px"><span style="font-size:2.4rem">'+u.av+'</span></div><b>'+esc(u.name)+'</b><div class="mut">Started at '+u.lv+' · Goal: B1</div><button class="btn" style="margin-top:10px" onclick="signup()">Edit profile</button></div>';
+h+='<h2>My details</h2><div class="card">'+r("Total XP",S.xp)+r("Level",Math.floor(S.xp/100)+1)+r("Lessons completed",dn.length+" / "+L.length)+r("Words learned",wl+" / "+tw)+r("Questions answered",S.total)+r("Accuracy",acc+"%")+r("Study days",Object.keys(S.act).length)+r("Current streak",streak()+" days")+r("Exams taken",ex.length)+r("Last exam level",ex.length?ex[ex.length-1].lv:"—")+'</div>';
+h+='<h2>Preferences</h2><div class="card"><button class="word" onclick="tg(\'sound\')"><span>'+ic("vol")+' Pronunciation sound</span><b style="color:var(--ac)">'+(S.pf.sound?"On":"Off")+'</b></button><button class="word" onclick="tg(\'anim\')"><span>'+ic("spark")+' Moving background</span><b style="color:var(--ac)">'+(S.pf.anim?"On":"Off")+'</b></button><button class="word" onclick="tg(\'cv\')"><span>'+ic("mic")+' Cloned voice (audio files)</span><b style="color:var(--ac)">'+(S.pf.cv?"On":"Off")+'</b></button><button class="word" onclick="nextStyle()"><span>'+ic("vol")+' Voice style</span><b style="color:var(--ac)">'+({woman:"Woman",man:"Man",ogre:"Ogre"}[S.pf.vt]||"Woman")+'</b></button><button class="word" onclick="nextVoice()"><span>'+ic("vol")+' Device voice</span><b style="color:var(--ac)">'+(S.pf.vn?"Voice "+S.pf.vn:"Default")+'</b></button><p class="mut" style="margin:8px 0 0">Cloned voice plays the files in the audio folder. If a file is missing, your device voice is used.</p><p class="mut" style="margin:6px 0 0">Voice in use: '+(pickVoice()?esc(pickVoice().name):"device default")+'. If it still sounds the same, your phone ignores pitch changes. Try the Device voice button, or use the cloned voice files.</p><div style="padding:12px 0 4px"><span>'+ic("pal")+' Color theme</span><div class="avs" style="margin-bottom:0">';
+[["lime","#b8f43c"],["blue","#5eb0ff"],["purple","#c4a1ff"],["sunset","#ffb347"]].forEach(function(t){h+='<button class="sw'+(S.pf.bg===t[0]?' on':'')+'" style="background:'+t[1]+'" onclick="setBg(\''+t[0]+'\')"></button>'});
+h+='</div></div></div><h2>Data</h2><div class="card"><p class="mut" style="margin-top:0">Reset your XP, lessons, streak and exam results. Your name and character stay.</p><button class="btn" style="background:'+(RS?'var(--bad)':'var(--card2)')+';color:'+(RS?'#fff':'var(--tx)')+'" onclick="rst()">'+(RS?"Tap again to confirm reset":"Reset my progress")+'</button></div>';
+h+=(S.cred?'<h2>Account</h2><div class="card"><button class="btn" style="background:var(--card2);color:var(--tx)" onclick="auth(\'in\')">Log out</button></div>':'');h+='<h2>About</h2><div class="card">'+r("App",CFG.name||"Lexivo")+r("Path","A1 → B1")+r("Lessons",L.length)+r("Words",tw)+r("Weekend exam","Sat & Sun")+'</div>';
+app.innerHTML=h;window.scrollTo(0,0)}
+function stats(){
+var t=new Date(),ex=S.exams||[],lvl=Math.floor(S.xp/100)+1,into=S.xp%100,acc=S.total?Math.round(S.right/S.total*100):0,nd=Object.keys(S.done).length,wl=0;
+Object.keys(S.done).forEach(function(i){wl+=L[i].w.length});
+var h='<h1>Statistics</h1><div class="card hero"><div class="mut">Current level</div><div style="font-size:3rem;font-weight:800;color:var(--ac)">'+(ex.length?ex[ex.length-1].lv:S.user.lv)+'</div><div class="mut">'+(ex.length?"from your last exam":"your starting level. Take the weekend exam to check it")+'</div></div>';
+h+='<div class="card"><div style="display:flex;justify-content:space-between"><b>XP level '+lvl+'</b><span class="mut">'+into+' / 100 XP</span></div><div class="bar"><i style="width:'+into+'%"></i></div>';
+["A1","A2","B1"].forEach(function(lv){var tot=0,dn=0,sc=0,qs=0;L.forEach(function(l,i){if(l.lv!==lv)return;tot++;if(S.done[i]){dn++;sc+=S.done[i];qs+=l.q.length}});
+var p=tot?Math.round(dn/tot*100):0,m=qs?Math.round(sc/qs*100):0;
+h+='<div style="display:flex;justify-content:space-between"><span>'+lv+' lessons</span><b>'+dn+' / '+tot+' · '+(qs?m+'% score':'no score yet')+'</b></div><div class="bar"><i style="width:'+p+'%"></i></div>'});
+h+='</div><div class="card"><b>Journey to B1</b><div class="bar"><i style="width:'+Math.round(nd/L.length*100)+'%"></i></div><span class="mut">'+nd+' of '+L.length+' lessons done ('+Math.round(nd/L.length*100)+'%)</span></div>';
+h+='<h2>Learning</h2><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
+[["Questions answered",S.total],["Accuracy",acc+"%"],["Words learned",wl],["Streak",streak()+" days"]].forEach(function(c){h+='<div class="card" style="margin:0;text-align:center"><div style="font-size:1.5rem;font-weight:800;color:var(--ac)">'+c[1]+'</div><div class="mut">'+c[0]+'</div></div>'});
+var nm=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],ds=[],mx=1;
+for(var i=6;i>=0;i--){var d=new Date(t);d.setDate(t.getDate()-i);var v=S.act[dk(d)]||0;ds.push([nm[d.getDay()],v]);if(v>mx)mx=v}
+h+='</div><h2>Last 7 days</h2><div class="card"><div style="display:flex;align-items:flex-end;gap:8px;height:120px">';
+ds.forEach(function(x){h+='<div style="flex:1;text-align:center"><div class="mut" style="font-size:.75rem">'+(x[1]||"")+'</div><div style="height:'+Math.round(x[1]/mx*80)+'px;min-height:4px;background:'+(x[1]?'var(--ac)':'var(--card2)')+';border-radius:6px"></div><div class="mut" style="font-size:.75rem">'+x[0]+'</div></div>'});
+h+='</div><div class="mut" style="margin-top:8px">Questions answered each day</div></div>';
+h+='<h2>Exam results</h2><div class="card">';
+if(!ex.length)h+='<span class="mut">No exam yet. The exam opens on Saturday and Sunday.</span>';
+ex.slice(-5).forEach(function(e){h+='<div style="display:flex;justify-content:space-between"><span>'+e.d+'</span><b>'+e.p+'% · '+e.lv+'</b></div><div class="bar"><i style="width:'+e.p+'%"></i></div>'});
+h+='</div><h2>Needs review</h2><div class="card">';
+var wk=[];L.forEach(function(l,i){if(S.done[i]&&S.done[i]/l.q.length<0.7)wk.push(l.t+' ('+Math.round(S.done[i]/l.q.length*100)+'%)')});
+h+=wk.length?wk.map(function(x){return '<div class="word" style="cursor:default">'+esc(x)+'</div>'}).join(''):'<span class="mut">'+(nd?'Great work! No lesson is below 70%.':'Finish a lesson to see what to review.')+'</span>';
+app.innerHTML=h+'</div>';window.scrollTo(0,0)}
+var P=[
+{t:"Food & Drink",lv:"A1",q:"EF podEnglish food",w:[["menu","قائمة الطعام"],["order","يطلب"],["delicious","لذيذ"],["hungry","جائع"],["bill","الفاتورة"]]},
+{t:"Travel",lv:"A1",q:"EF podEnglish travel",w:[["airport","مطار"],["ticket","تذكرة"],["passport","جواز سفر"],["hotel","فندق"],["luggage","أمتعة"]]},
+{t:"Work & Jobs",lv:"A2",q:"EF podEnglish work job",w:[["boss","مدير"],["salary","راتب"],["colleague","زميل"],["meeting","اجتماع"],["interview","مقابلة عمل"]]},
+{t:"Shopping",lv:"A2",q:"EF podEnglish shopping",w:[["price","سعر"],["discount","تخفيض"],["cheap","رخيص"],["pay","يدفع"],["receipt","إيصال"]]},
+{t:"Free Time & Hobbies",lv:"B1",q:"EF podEnglish free time hobbies",w:[["weekend","عطلة نهاية الأسبوع"],["movie","فيلم"],["join","ينضم"],["invite","يدعو"],["enjoy","يستمتع"]]}
+];
+function podUrl(k){return(S.pl&&S.pl[k])?S.pl[k]:"https://www.youtube.com/results?search_query="+encodeURIComponent(P[k].q)}
+function setPl(k,v){v=v.trim();S.pl=S.pl||{};S.pl[k]=/^https?:\/\//i.test(v)?v:"";save();pod()}
+function setPn(k,v){S.pn=S.pn||{};S.pn[k]=v;save()}
+function podDone(k){S.pd=S.pd||{};if(!S.pd[k]){S.pd[k]=1;S.xp+=15;S.act[dk(new Date())]=(S.act[dk(new Date())]||0)+1;save()}pod()}
+function pod(){
+S.pd=S.pd||{};var n=Object.keys(S.pd).length;
+var h='<h1>Podcast</h1><div class="card"><b>EF podEnglish</b><p class="mut">Short English lessons, about 5 minutes each, for beginner to intermediate learners. Watch one episode, then follow the 3 steps in each card.</p><a class="btn" style="display:inline-block;text-decoration:none" href="https://www.youtube.com/results?search_query=EF+podEnglish" target="_blank" rel="noopener">Open the channel on YouTube</a><div class="bar" style="margin-top:14px"><i style="width:'+n*20+'%"></i></div><span class="badge">'+n+' of 5 podcasts listened</span></div>';
+P.forEach(function(p,k){var d=S.pd[k];
+h+='<div class="card" style="--c:'+lc(p.lv)+'"><div style="display:flex;justify-content:space-between;align-items:center"><b>'+(k+1)+'. '+esc(p.t)+'</b><span class="pill" style="font-size:.75rem;padding:2px 10px">'+p.lv+'</span></div>';
+h+='<p class="mut" style="margin:10px 0 6px">1. Learn the key words before you listen (tap to hear)</p><div class="wg" style="margin-top:0">';
+p.w.forEach(function(w){h+='<button class="wt" onclick="say(\''+w[0]+'\')"><b>'+ic("vol")+' '+esc(w[0])+'</b><span>'+esc(w[1])+'</span></button>'});
+h+='</div><p class="mut" style="margin:12px 0 6px">2. Listen, then write what you understood</p><a class="btn" style="display:inline-block;text-decoration:none;margin-bottom:8px" href="'+esc(podUrl(k))+'" target="_blank" rel="noopener">'+(S.pl&&S.pl[k]?'Open your episode':'Find the episode on YouTube')+'</a>';
+h+='<input placeholder="Paste the exact episode link (optional)" value="'+esc((S.pl&&S.pl[k])||"")+'" onchange="setPl('+k+',this.value)"><textarea rows="3" placeholder="Write the topic, 3 new words and one sentence you understood..." onchange="setPn('+k+',this.value)">'+esc((S.pn&&S.pn[k])||"")+'</textarea>';
+h+='<p class="mut" style="margin:4px 0 8px">3. Say one sentence about the topic out loud.</p>'+(d?'<span class="done">✓ Listened</span>':'<button class="btn" onclick="podDone('+k+')">Mark as listened (+15 XP)</button>')+'</div>'});
+app.innerHTML=h}
+var EX=null;
+function exam(){
+var d=new Date().getDay(),wk=d===0||d===6||CFG.examAny,h='<h1>Weekend Exam</h1><div class="card"><b>Find out your real level</b><p class="mut">15 mixed questions: 5 from A1, 5 from A2 and 5 from B1. Your result shows your current level. No hints and no answers until the end. The exam opens every Saturday and Sunday.</p>';
+if(wk)h+='<button class="btn" onclick="exStart()">Start the exam</button>';
+else h+='<div class="done">'+ic("lock")+' Opens in '+(6-d)+' day'+(6-d>1?'s':'')+' (Saturday)</div>';
+h+='</div>';var H=S.exams||[];
+if(H.length){h+='<h2>Your results</h2>';H.slice(-5).reverse().forEach(function(e){h+='<div class="card lesson"><span>'+e.d+'<br><span class="badge">'+e.p+'% correct</span></span><b class="done">'+e.lv+'</b></div>'})}
+app.innerHTML=h}
+function exStart(){
+var qs=[];["A1","A2","B1"].forEach(function(lv){var p=[];L.forEach(function(l){if(l.lv===lv)l.q.forEach(function(q){p.push({t:q[0],o:q[1],a:q[2],lv:lv})})});p.sort(function(){return Math.random()-.5});qs=qs.concat(p.slice(0,5))});
+EX={qs:qs,k:0,sc:{A1:0,A2:0,B1:0}};exQ()}
+function exQ(){
+if(EX.k>=EX.qs.length){exEnd();return}
+var q=EX.qs[EX.k],h='<div class="mut">Question '+(EX.k+1)+' of '+EX.qs.length+'</div><div class="bar"><i style="width:'+Math.round(EX.k/EX.qs.length*100)+'%"></i></div><div class="card"><b>'+esc(q.t)+'</b>';
+q.o.forEach(function(o,j){h+='<button class="opt" onclick="exAns('+j+')">'+esc(o)+'</button>'});
+app.innerHTML=h+'</div>';window.scrollTo(0,0)}
+function exAns(j){var q=EX.qs[EX.k];S.total++;S.act[dk(new Date())]=(S.act[dk(new Date())]||0)+1;if(j===q.a){EX.sc[q.lv]++;S.right++}EX.k++;exQ()}
+function exEnd(){
+var s=EX.sc,tot=s.A1+s.A2+s.B1,p=Math.round(tot/15*100),lv="Below A1";
+if(s.A1>=3)lv="A1";if(s.A1>=3&&s.A2>=3)lv="A2";if(s.A1>=3&&s.A2>=3&&s.B1>=3)lv="B1";
+S.exams=(S.exams||[]).concat([{d:new Date().toLocaleDateString(),p:p,lv:lv}]);S.xp+=tot*5;save();
+var weak=s.A1<3?"A1":s.A2<3?"A2":s.B1<3?"B1":"";
+var tip=weak?"Next step: review the "+weak+" lessons and repeat their words aloud.":"Excellent! You reached B1. Keep reviewing every day to make it solid.";
+var h='<div class="card hero"><div class="mut">Your level</div><div style="font-size:3.5rem;font-weight:800;color:var(--ac)">'+lv+'</div><b>'+tot+' / 15 correct ('+p+'%)</b><div class="mut">+'+tot*5+' XP</div></div><div class="card">';
+["A1","A2","B1"].forEach(function(k){h+='<div style="display:flex;justify-content:space-between"><span>'+k+'</span><b>'+s[k]+' / 5</b></div><div class="bar"><i style="width:'+s[k]*20+'%"></i></div>'});
+h+='<p class="mut">'+tip+' A level counts when you get at least 3 of 5 right.</p></div><button class="btn" onclick="go(\'learn\')">Go to lessons</button> <button class="ghost" onclick="go(\'exam\')">Back to exam</button>';
+app.innerHTML=h;window.scrollTo(0,0)}
+var AV=["🦊","🐼","🦁","🐯","🐸","🦉"],PA=AV[0];
+function pickAv(a){PA=a;document.querySelectorAll(".av").forEach(function(b){b.classList.toggle("on",b.textContent===a)})}
+function signup(){
+PA=S.user?S.user.av:AV[0];var u=S.user||{name:"",lv:"A1"};nav.style.display="none";
+var h='<div class="card"><h2 style="margin-top:0">Set up your profile</h2><div class="ar">أهلا بك! أنشئ ملفك الشخصي</div><label>Your name<input id="nm" maxlength="20" placeholder="e.g. Sara" value="'+esc(u.name)+'"></label><label>Your level now<select id="lv">';
+["A1","A2"].forEach(function(v){h+='<option'+(u.lv===v?' selected':'')+'>'+v+'</option>'});
+h+='</select></label><b>Choose your character</b><div class="avs">';
+AV.forEach(function(a){h+='<button class="av'+(a===PA?' on':'')+'" onclick="pickAv(\''+a+'\')">'+a+'</button>'});
+h+='</div><button class="btn" onclick="reg()">Start learning</button></div>';
+app.innerHTML=h}
+function reg(){
+var nm=document.getElementById("nm").value.trim();
+if(!nm){document.getElementById("nm").focus();return}
+S.user={name:nm,av:PA,lv:document.getElementById("lv").value};save();go("profile")}
+var AM="up",FG=0;
+function simpleHash(s){var h=5381;for(var i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return "x"+(h>>>0).toString(16)}
+function hashPw(t,salt){var s=salt+":"+t;try{if(window.crypto&&crypto.subtle&&window.TextEncoder)return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return("0"+x.toString(16)).slice(-2)}).join("")}).catch(function(){return simpleHash(s)})}catch(e){}return Promise.resolve(simpleHash(s))}
+function auth(mode){
+nav.style.display="none";FG=0;AM=mode||(S.cred?"in":"up");
+var up=AM==="up",nm=up?(S.user?S.user.name:""):(S.cred?S.cred.u:"");
+var h='<div class="auth"><div class="glass"><div class="alogo" id="alogo"></div>';
+h+='<h2 class="ah">'+(up?'Create your account':'Welcome back'+(S.user?', '+esc(S.user.name):''))+'</h2>';
+h+='<form onsubmit="return authGo(event)" novalidate>';
+h+='<label for="au">Username</label><input id="au" class="ain" maxlength="20" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="e.g. sara.k" value="'+esc(nm)+'">';
+h+='<label for="ap">'+(up?'Create password':'Password')+'</label><div class="pw"><input id="ap" class="ain" type="password" autocomplete="'+(up?'new-password':'current-password')+'" placeholder="'+(up?'At least 6 characters':'Your password')+'"><button type="button" class="eye" onclick="eye()">Show</button></div>';
+h+='<div class="amsg" id="am" role="status"></div>';
+h+='<button class="abtn" type="submit">'+(up?'Sign up':'Login')+'</button></form>';
+h+=up?'<p class="aft">Your password stays on this device only.</p>':'<p class="aft"><button type="button" class="alink" id="fg" onclick="forgot()">Forgot password?</button></p>';
+h+='</div></div>';
+app.innerHTML=h;
+var lg=document.querySelector("#splash .lgo");if(lg)document.getElementById("alogo").appendChild(lg.cloneNode(true));
+window.scrollTo(0,0)}
+function welcome(u,next){
+app.innerHTML='<div class="auth"><div class="glass wel"><div class="alogo" id="alogo"></div><h2 class="ah">Welcome, '+esc(u)+'!</h2><p class="aft" style="margin:0 0 18px">Your account is ready. Let\'s start learning English.</p><div class="wbar"><i></i></div></div></div>';
+var lg=document.querySelector("#splash .lgo");if(lg)document.getElementById("alogo").appendChild(lg.cloneNode(true));
+setTimeout(next,4000)}
+function eye(){var p=document.getElementById("ap"),b=document.querySelector(".eye"),s=p.type==="password";p.type=s?"text":"password";b.textContent=s?"Hide":"Show"}
+function authGo(e){
+e.preventDefault();
+var u=document.getElementById("au").value.trim(),p=document.getElementById("ap").value,m=document.getElementById("am");
+m.style.color="";
+if(u.toLowerCase()==="medd21"){hashPw(p,"lexivo-admin").then(function(h){if(h===ADM_H||h===ADM_S){ADMIN=true;AD="home";if(!S.user)S.user={name:"Admin",av:AV[0],lv:"A1"};tab="admin";render()}else m.textContent="Wrong username or password."});return false}
+if(AM==="up"){
+if(u.length<3){m.textContent="Username must be at least 3 characters.";return false}
+if(!/^[\p{L}\p{N}_.]+$/u.test(u)){m.textContent="Use letters, numbers, dots or underscores only.";return false}
+if(p.length<6){m.textContent="Password must be at least 6 characters.";return false}
+var salt=Math.random().toString(36).slice(2)+Date.now().toString(36),had=!!S.user;
+hashPw(p,salt).then(function(h){S.cred={u:u,s:salt,h:h};if(!had)S.user={name:u,av:AV[0],lv:"A1"};save();welcome(u,function(){if(had)go("profile");else signup()})});
+return false}
+if(!S.cred){auth("up");return false}
+hashPw(p,S.cred.s).then(function(h){if(u.toLowerCase()===S.cred.u.toLowerCase()&&h===S.cred.h)go("profile");else m.textContent="Wrong username or password."});
+return false}
+function forgot(){var m=document.getElementById("am"),b=document.getElementById("fg");
+if(!FG){FG=1;m.style.color="var(--mut)";m.textContent="There is no email recovery. Tap again to remove the password and create a new one. Your progress is kept.";b.textContent="Tap again to remove the password";return}
+FG=0;S.cred=null;save();auth("up")}
+var PIC=[
+{t:"Food",c:"#ffb347",i:[["🍎","apple","تفاحة"],["🍌","banana","موزة"],["🍞","bread","خبز"],["🥛","milk","حليب"],["🥚","egg","بيضة"],["🍕","pizza","بيتزا"],["🍚","rice","أرز"],["🧀","cheese","جبن"],["🍉","watermelon","بطيخ"],["🥕","carrot","جزرة"]]},
+{t:"Animals",c:"#5ee08a",i:[["🐱","cat","قطة"],["🐶","dog","كلب"],["🐟","fish","سمكة"],["🐦","bird","طائر"],["🐴","horse","حصان"],["🐄","cow","بقرة"],["🐑","sheep","خروف"],["🐘","elephant","فيل"],["🐯","tiger","نمر"],["🐒","monkey","قرد"]]},
+{t:"Home",c:"#5eb0ff",i:[["🏠","house","منزل"],["🛏️","bed","سرير"],["🪑","chair","كرسي"],["🔑","key","مفتاح"],["🚪","door","باب"],["💡","lamp","مصباح"],["📺","television","تلفاز"],["🚿","shower","دش"],["🪟","window","نافذة"],["🛋️","sofa","أريكة"]]},
+{t:"Transport",c:"#ff7ac8",i:[["🚗","car","سيارة"],["🚌","bus","حافلة"],["🚲","bicycle","دراجة"],["✈️","airplane","طائرة"],["🚆","train","قطار"],["🚢","ship","سفينة"],["🛵","scooter","سكوتر"],["🚕","taxi","سيارة أجرة"],["🏍️","motorcycle","دراجة نارية"],["🚑","ambulance","سيارة إسعاف"]]},
+{t:"Clothes",c:"#ffe08a",i:[["👕","shirt","قميص"],["👖","jeans","بنطال جينز"],["👟","shoes","حذاء"],["🧢","cap","قبعة"],["🧦","socks","جوارب"],["🧥","coat","معطف"],["👗","dress","فستان"],["🧣","scarf","وشاح"],["🧤","gloves","قفازات"],["👜","handbag","حقيبة يد"]]},
+{t:"Things",c:"#c4a1ff",i:[["📖","book","كتاب"],["✏️","pencil","قلم رصاص"],["🎒","backpack","حقيبة ظهر"],["⏰","clock","ساعة"],["📱","phone","هاتف"],["💻","laptop","حاسوب"],["☂️","umbrella","مظلة"],["⚽","ball","كرة"],["🔦","flashlight","مصباح يدوي"],["✂️","scissors","مقص"]]}
+];
+var PX={};
+function shuf(a){return a.slice().sort(function(){return Math.random()-.5})}
+function picItems(ci){if(ci<0){var a=[];PIC.forEach(function(c){a=a.concat(c.i)});return a}return PIC[ci].i}
+function picHome(){
+var h='<button class="ghost" onclick="go(\'learn\')">&larr; Learn</button><h1>Picture exercise</h1><div class="mut">Choose a topic. Look at the pictures, then test yourself.</div><div class="tg" style="margin-top:12px">';
+PIC.forEach(function(c,ci){h+='<button class="tile" style="--c:'+c.c+'" onclick="picCat('+ci+')"><div><span class="no" style="width:44px;height:44px;font-size:1.5rem">'+c.i[0][0]+'</span><b>'+c.t+'</b><span class="badge">'+c.i.length+' pictures</span></div><div class="ft"><span>'+c.i.slice(1,4).map(function(x){return x[0]}).join(" ")+'</span>'+ic("play","gold")+'</div></button>'});
+h+='<button class="tile" style="--c:#c4a1ff" onclick="picCat(-1)"><div><span class="no" style="width:44px;height:44px;font-size:1.5rem">★</span><b>Mix of all</b><span class="badge">'+picItems(-1).length+' pictures</span></div><div class="ft"><span></span>'+ic("play","gold")+'</div></button></div>';
+app.innerHTML=h;window.scrollTo(0,0)}
+function picCat(ci){PX.ci=ci;var h='<button class="ghost" onclick="picHome()">&larr; Topics</button><h2>'+(ci<0?"Mix of all":PIC[ci].t)+'</h2>';
+[["learn","Look and learn","See each picture with its name and Arabic meaning"],["choose","Choose the name","Pick the right English word for each picture"],["type","Type the name","Write the English word for each picture"]].forEach(function(m){var b=(S.pic||{})[ci+m[0]];h+='<button class="card lesson" onclick="picGo(\''+m[0]+'\')"><span><b>'+m[1]+'</b><br><span class="badge">'+m[2]+(b!=null?' &middot; best '+b:'')+'</span></span>'+ic("play","gold")+'</button>'});
+app.innerHTML=h;window.scrollTo(0,0)}
+function picGo(m){if(m==="learn"){var h='<button class="ghost" onclick="picCat('+PX.ci+')">&larr; Back</button><div class="mut">Tap a picture to hear its name.</div><div class="wg">';
+picItems(PX.ci).forEach(function(x){h+='<button class="wt" style="align-items:center;text-align:center;padding:16px 8px" onclick="say(\''+x[1]+'\')"><span style="font-size:3.4rem;direction:ltr;line-height:1.2">'+x[0]+'</span><b style="font-size:1.05rem">'+esc(x[1])+'</b><span>'+esc(x[2])+'</span></button>'});
+app.innerHTML=h+'</div>';window.scrollTo(0,0);return}
+PX.mode=m;PX.qs=shuf(picItems(PX.ci)).slice(0,m==="choose"?10:8);PX.k=0;PX.sc=0;picQ()}
+function picQ(){
+if(PX.k>=PX.qs.length){picEnd();return}
+var q=PX.qs[PX.k],h='<div class="mut">Picture '+(PX.k+1)+' of '+PX.qs.length+'</div><div class="bar"><i style="width:'+Math.round(PX.k/PX.qs.length*100)+'%"></i></div><div class="card" style="text-align:center"><div style="font-size:5.5rem;line-height:1.2">'+q[0]+'</div><b>What is this?</b><div id="o" style="text-align:left;margin-top:8px">';
+if(PX.mode==="choose"){var d=shuf(picItems(-1).filter(function(x){return x[1]!==q[1]})).slice(0,3).map(function(x){return x[1]});PX.o=shuf(d.concat([q[1]]));
+PX.o.forEach(function(o,j){h+='<button class="opt" onclick="picA('+j+')">'+esc(o)+'</button>'})}
+else{h+='<div class="mut" style="text-align:center">Hint: '+esc(q[2])+' &middot; '+q[1].length+' letters, starts with "'+esc(q[1][0])+'"</div><input id="pt" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Type the English word" onkeydown="if(event.key===\'Enter\')picT()"><button class="btn" onclick="picT()">Check</button>'}
+app.innerHTML=h+'</div></div>';window.scrollTo(0,0)}
+function picNext(ok,q){S.total++;S.act[dk(new Date())]=(S.act[dk(new Date())]||0)+1;if(ok){PX.sc++;S.right++;say(q[1])}save();
+var b=document.createElement("button");b.className="btn";b.style.marginTop="10px";b.textContent="Next";b.onclick=function(){PX.k++;picQ()};document.getElementById("o").appendChild(b)}
+function picA(j){var q=PX.qs[PX.k];document.querySelectorAll(".opt").forEach(function(x,n){x.disabled=true;if(PX.o[n]===q[1])x.classList.add("ok");else if(n===j)x.classList.add("bad")});picNext(PX.o[j]===q[1],q)}
+function picT(){var i=document.getElementById("pt");if(!i||i.disabled)return;var q=PX.qs[PX.k],ok=i.value.trim().toLowerCase()===q[1];i.disabled=true;
+document.getElementById("o").insertAdjacentHTML("beforeend",'<p style="text-align:center;font-weight:700;color:'+(ok?'var(--ac)':'var(--bad)')+'">'+(ok?'Correct!':'The answer is: '+esc(q[1]))+'</p>');picNext(ok,q)}
+function picEnd(){S.pic=S.pic||{};var k=PX.ci+PX.mode,n=PX.qs.length;S.pic[k]=Math.max(S.pic[k]||0,PX.sc);S.xp+=PX.sc*3;save();
+app.innerHTML='<div class="card hero"><h2>'+(PX.sc===n?"Perfect! 🎉":"Good work!")+'</h2><p>Score: '+PX.sc+' / '+n+' (+'+PX.sc*3+' XP)</p><button class="btn" onclick="picGo(\''+PX.mode+'\')">Try again</button> <button class="ghost" onclick="picCat('+PX.ci+')">Back to topic</button></div>'}
+var ADMIN=false,AD="home",DEL=-1,CFG={},ADM_H="4b3430c6adaeacb5fd0286de016eff8d878268ddf0162b585c3ec3a7b6fc2357",ADM_S="xd7b5cb73";
+function aSave(){try{localStorage.setItem("lexivo_admin",JSON.stringify({L:L,EXS:EXS,P:P,cfg:CFG}))}catch(e){}}
+function aLine(t){return String(t).split("\n").map(function(x){return x.trim()}).filter(Boolean)}
+function aF(id){return document.getElementById(id).value}
+function aMsg(t,bad){var m=document.getElementById("aok");if(m){m.textContent=t;m.style.color=bad?"var(--bad)":"var(--ac)"}}
+function aGo(x){AD=x;DEL=-1;admin()}
+function aOut(){ADMIN=false;AD="home";auth("in")}
+function applyCfg(){var t=document.querySelector("#splash .tg2");if(t&&CFG.tag)t.textContent=CFG.tag;if(CFG.name)document.title=CFG.name;var sp2=document.getElementById("splash");if(CFG.splash===false&&sp2)sp2.style.display="none"}
+function shiftKeys(o,i){var n={};Object.keys(o||{}).forEach(function(k){k=+k;if(k<i)n[k]=o[k];else if(k>i)n[k-1]=o[k]});return n}
+function aAdd(){L.push({lv:"A1",t:"New lesson",en:"",ar:"",w:[],q:[]});EXS.push("");aSave();aGo("L"+(L.length-1))}
+function aDel(i){if(DEL!==i){DEL=i;admin();return}L.splice(i,1);EXS.splice(i,1);S.done=shiftKeys(S.done,i);S.wrote=shiftKeys(S.wrote,i);save();aSave();aGo("lessons")}
+function aSaveL(i){var l=L[i];l.t=aF("et").trim()||l.t;l.lv=aF("elv");l.en=aF("een");l.ar=aF("ear");
+EXS[i]=aLine(aF("eex")).map(function(x){var a=x.replace(/;/g,",").split("|");return a[0].trim()+"|"+(a[1]||"").trim()}).join(";");
+l.w=aLine(aF("ewd")).map(function(x){var a=x.split("|");return [a[0].trim(),(a[1]||"").trim()]});
+l.q=aLine(aF("eq")).map(function(x){var a=x.split("|"),o=(a[1]||"").split(";").map(function(z){return z.trim()}).filter(Boolean),c=Math.max(1,Math.min(o.length,parseInt(a[2])||1))-1;return [a[0].trim(),o,c]}).filter(function(q){return q[1].length>1});
+var wp=aF("ewp").trim();if(wp)l.wr={p:wp,m:parseInt(aF("ewm"))||10,r:(l.wr&&l.wr.r)||[]};else delete l.wr;
+aSave();aMsg("Saved. "+l.w.length+" words, "+l.q.length+" questions.")}
+function aSaveP(){P=aLine(aF("epd")).map(function(x){var a=x.split("|");return {t:a[0].trim(),lv:(a[1]||"A1").trim(),q:(a[2]||a[0]).trim(),w:(a[3]||"").split(",").map(function(z){var b=z.split(":");return [b[0].trim(),(b[1]||"").trim()]}).filter(function(w){return w[0]})}});aSave();aMsg("Saved "+P.length+" podcasts.")}
+function aSaveO(){CFG={name:aF("ona").trim(),tag:aF("otg").trim(),xpQ:parseInt(aF("oxp"))||10,examAny:aF("oex")==="1",splash:aF("osp")!=="0"};aSave();applyCfg();aMsg("Saved.")}
+function aImport(){try{var o=JSON.parse(aF("edata"));if(!Array.isArray(o.L))throw 0;L=o.L;EXS=o.EXS||[];P=o.P||P;CFG=o.cfg||{};aSave();applyCfg();aMsg("Data loaded.")}catch(e){aMsg("That data is not valid.",1)}}
+function aResetC(){if(DEL!==-2){DEL=-2;admin();return}try{localStorage.removeItem("lexivo_admin")}catch(e){}location.reload()}
+function aResetP(){if(DEL!==-3){DEL=-3;admin();return}S.xp=0;S.done={};S.act={};S.right=0;S.total=0;S.exams=[];S.wrote={};S.pd={};S.pn={};save();DEL=-1;admin();aMsg("Learner progress cleared.")}
+function aSel(id,v,o){var h='<select id="'+id+'">';o.forEach(function(x){h+='<option value="'+x[0]+'"'+(String(x[0])===String(v)?' selected':'')+'>'+x[1]+'</option>'});return h+'</select>'}
+function admin(){
+if(!ADMIN){go("profile");return}
+var h='<div style="display:flex;justify-content:space-between;align-items:center"><h1>Admin</h1><span><button class="ghost" onclick="go(\'profile\')">Open app</button> <button class="ghost" onclick="aOut()">Log out</button></span></div>',m=/^L(\d+)$/.exec(AD);
+if(AD==="home"){h+='<p class="mut">Change any lesson, podcast, text or option. Changes are saved on this device only.</p>';
+[["lessons","Lessons","Edit, add or delete lessons, examples, words, quizzes and writing tasks"],["pods","Podcasts","Edit the podcast cards"],["opts","App options","Name, splash text, XP and exam days"],["data","Data","Copy, paste or reset everything"]].forEach(function(x){h+='<button class="card lesson" onclick="aGo(\''+x[0]+'\')"><span><b>'+x[1]+'</b><br><span class="badge">'+x[2]+'</span></span><b style="color:var(--ac)">&rsaquo;</b></button>'})}
+else h+='<button class="ghost" onclick="aGo(\''+(m?'lessons':'home')+'\')">&larr; Back</button>';
+if(AD==="lessons"){L.forEach(function(l,i){h+='<button class="card lesson" onclick="aGo(\'L'+i+'\')"><span><b>'+(i+1)+'. '+esc(l.t)+'</b> <span class="badge">'+l.lv+'</span><br><span class="badge">'+l.w.length+' words, '+l.q.length+' questions</span></span><b style="color:var(--ac)">Edit</b></button>'});h+='<button class="btn" onclick="aAdd()">+ Add a lesson</button>'}
+else if(m&&L[+m[1]]){var i=+m[1],l=L[i];
+h+='<div class="card"><label class="al">Title</label><input id="et" value="'+esc(l.t)+'"><label class="al">Level</label>'+aSel("elv",l.lv,[["A1","A1"],["A2","A2"],["B1","B1"]])+'<label class="al">Grammar explanation (English)</label><textarea id="een" rows="4">'+esc(l.en)+'</textarea><label class="al">Grammar note (Arabic)</label><textarea id="ear" rows="3" dir="rtl">'+esc(l.ar)+'</textarea>';
+h+='<label class="al">Examples: one per line, English | Arabic</label><textarea class="mono" id="eex" rows="5">'+esc((EXS[i]||"").split(";").filter(Boolean).map(function(x){return x.replace("|"," | ")}).join("\n"))+'</textarea>';
+h+='<label class="al">Words: one per line, word | Arabic</label><textarea class="mono" id="ewd" rows="8">'+esc(l.w.map(function(w){return w[0]+" | "+w[1]}).join("\n"))+'</textarea>';
+h+='<label class="al">Questions: one per line, question | option ; option ; option | number of the right option</label><textarea class="mono" id="eq" rows="8">'+esc(l.q.map(function(q){return q[0]+" | "+q[1].join(" ; ")+" | "+(q[2]+1)}).join("\n"))+'</textarea>';
+h+='<label class="al">Writing task (leave empty for none)</label><input id="ewp" value="'+esc(l.wr?l.wr.p:"")+'"><label class="al">Minimum words</label><input id="ewm" type="number" value="'+(l.wr?l.wr.m:10)+'">';
+h+='<button class="btn" onclick="aSaveL('+i+')">Save lesson</button> <button class="ghost" style="color:var(--bad)" onclick="aDel('+i+')">'+(DEL===i?'Tap again to delete':'Delete lesson')+'</button><div class="ok2" id="aok"></div></div>'}
+else if(AD==="pods"){h+='<div class="card"><label class="al">One podcast per line: title | level | YouTube search | word:Arabic, word:Arabic</label><textarea class="mono" id="epd" rows="12">'+esc(P.map(function(p){return p.t+" | "+p.lv+" | "+p.q+" | "+p.w.map(function(w){return w[0]+":"+w[1]}).join(", ")}).join("\n"))+'</textarea><button class="btn" onclick="aSaveP()">Save podcasts</button><div class="ok2" id="aok"></div></div>'}
+else if(AD==="opts"){h+='<div class="card"><label class="al">App name</label><input id="ona" value="'+esc(CFG.name||"")+'" placeholder="Lexivo"><label class="al">Splash tagline</label><input id="otg" value="'+esc(CFG.tag||"")+'" placeholder="Learn English · A1 → B1"><label class="al">XP for each correct quiz answer</label><input id="oxp" type="number" value="'+(CFG.xpQ||10)+'"><label class="al">Weekend exam</label>'+aSel("oex",CFG.examAny?"1":"0",[["0","Only Saturday and Sunday"],["1","Open every day"]])+'<label class="al">Logo splash screen</label>'+aSel("osp",CFG.splash===false?"0":"1",[["1","Show"],["0","Hide"]])+'<button class="btn" style="margin-top:14px" onclick="aSaveO()">Save options</button><div class="ok2" id="aok"></div></div>'}
+else if(AD==="data"){h+='<div class="card"><label class="al">All content (copy it to back up, or paste data here and tap Load)</label><textarea class="mono" id="edata" rows="9">'+esc(JSON.stringify({L:L,EXS:EXS,P:P,cfg:CFG}))+'</textarea><button class="btn" onclick="aImport()">Load pasted data</button><div class="ok2" id="aok"></div></div><div class="card"><button class="btn" style="background:var(--card2);color:var(--tx)" onclick="aResetC()">'+(DEL===-2?'Tap again to restore the original content':'Restore original lessons and options')+'</button><br><br><button class="btn" style="background:var(--card2);color:var(--tx)" onclick="aResetP()">'+(DEL===-3?'Tap again to clear all progress':'Clear learner progress on this device')+'</button></div>'}
+app.innerHTML=h;window.scrollTo(0,0)}
+try{var AO=JSON.parse(localStorage.getItem("lexivo_admin")||"null");if(AO){if(AO.L)L=AO.L;if(AO.EXS)EXS=AO.EXS;if(AO.P)P=AO.P;CFG=AO.cfg||{}}}catch(e){}
+applyCfg();
+auth();
+var sp=document.getElementById("splash");
+function hideSplash(){if(!sp||sp.dataset.h)return;sp.dataset.h=1;sp.classList.add("out");setTimeout(function(){sp.style.display="none"},800)}
+if(sp){sp.onclick=hideSplash;setTimeout(hideSplash,3300)}
+</script>
+
+</body></html>
